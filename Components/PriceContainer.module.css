@@ -1,0 +1,23 @@
+.priceSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 1.75rem 4rem 1.75rem;
+}
+
+@media screen and (min-width: 768px) {
+    .priceSection {
+        padding: 2.5rem 2.5rem 7rem 2.5rem;
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+
+    .priceSection {
+        flex-direction: row;
+        gap: 1.875rem;
+        padding-bottom: 10rem;
+        padding-top: 5rem;
+    }
+}

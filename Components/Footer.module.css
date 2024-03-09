@@ -1,0 +1,148 @@
+.footer {
+
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+
+    padding: 3.5rem 2rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7.438rem;
+}
+
+.ctaAndCopyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.125rem;
+
+}
+
+.socialsAndLinks {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3.063rem;
+    padding-top: 2rem;
+}
+
+.logoAndSocial {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.831rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.188rem;
+    color: var(--pure-white);
+
+}
+
+.link {
+    color: var(--pure-white);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    font-size: .75rem;
+    letter-spacing: 0.125rem;
+    line-height: normal;
+    font-family: 'DMSansBold';
+}
+
+.link:hover {
+    opacity: .3;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    opacity: .5;
+    font-size: 0.938rem;
+}
+
+
+.logoImg {
+    margin-inline: auto;
+}
+
+.icon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%)
+}
+
+.icon:hover {
+    filter: unset;
+}
+
+@media screen and (min-width: 768px) {
+    .footer {
+        padding: 4rem 2.5rem;
+
+    }
+
+    .wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logoLinksAndSocials {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .socialsAndLinks {
+        flex-direction: column;
+    }
+
+    .links {
+        flex-direction: row;
+        gap: 1.625rem;
+    }
+
+    .ctaAndCopyright {
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .socialLinks {
+        justify-content: start;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .socialsAndLinks {
+        flex-direction: row-reverse;
+        align-items: end;
+        padding-top: 0;
+        gap: 7.813rem;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        position: relative;
+        top: 1rem;
+    }
+
+    .cta {
+        position: relative;
+        top: 1rem;
+    }
+}

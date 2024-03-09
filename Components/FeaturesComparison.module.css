@@ -1,0 +1,66 @@
+.comparison {
+    padding: 0 1.75rem 4rem 1.75rem;
+}
+
+.header h3,
+.header h4 {
+    font-size: .75rem;
+    font-family: 'DMSansBold';
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+    line-height: normal;
+}
+
+.header {
+    border-bottom: 1px solid var(--pure-black);
+    padding-bottom: 1.438rem;
+
+}
+
+@media screen and (min-width: 768px) {
+    .comparison {
+        padding: 0 2.5rem 4rem 2.5rem;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .offersLabel {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 4.25rem;
+    }
+
+    .header h4 {
+        text-align: center;
+    }
+
+    .comparison h2 {
+        font-size: var(--heading-900);
+        line-height: var(--line-height-heading-900);
+        letter-spacing: var(--letter-spacing-heading-900);
+        font-family: 'DMSansBold';
+        padding-bottom: 4rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    .maxWidth {
+        max-width: 46.063rem;
+        margin-inline: auto;
+    }
+
+    .comparison h2 {
+        padding-bottom: 3.5rem;
+    }
+
+    .comparison {
+        padding-bottom: 7rem;
+    }
+}

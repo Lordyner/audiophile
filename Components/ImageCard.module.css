@@ -1,0 +1,170 @@
+.card {
+    position: relative;
+    /* height: 23.438rem;
+    width: 23.438rem; */
+}
+
+/* .card.mountain::after {
+    background: linear-gradient(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3)),
+        url('../public/images/stories/mobile/mountains.jpg') no-repeat;
+}
+
+.card.cityscapes::after {
+    background: linear-gradient(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3)),
+        url('../public/images/stories/mobile/cityscapes.jpg') no-repeat;
+}
+
+.card.voyage::after {
+    background: linear-gradient(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3)),
+        url('../public/images/stories/mobile/18-days-voyage.jpg') no-repeat;
+}
+
+.card.architecturals::after {
+    background: linear-gradient(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3)),
+        url('../public/images/stories/mobile/architecturals.jpg') no-repeat;
+} */
+
+.card:after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3));
+    background-size: contain;
+}
+
+
+.text {
+    --_padding-left-and-right: 2rem;
+    width: calc(100% - (2*var(--_padding-left-and-right)));
+    padding: 0 var(--_padding-left-and-right) 2.5rem var(--_padding-left-and-right);
+
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+
+    width: calc(100% - (2*var(--_padding-left-and-right)));
+
+    color: var(--pure-white);
+}
+
+.text h3 {
+    font-size: 1.125rem;
+    line-height: 1.563rem;
+    font-weight: normal;
+}
+
+.author {
+    font-size: 0.813rem;
+    line-height: normal;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    color: var(--pure-white);
+    opacity: .25;
+    border-bottom: 1px solid;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.date {
+    font-size: 0.813rem;
+    line-height: normal;
+}
+
+
+.CTA {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'DMSansBold';
+    color: var(--pure-white);
+    line-height: normal;
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+}
+
+.arrowCTA {
+    position: relative;
+}
+
+
+.arrowCTA::after {
+    content: '';
+    display: inline-block;
+    width: 2.625rem;
+    height: .75rem;
+    margin-left: 1rem;
+    background: url('../public/images/shared/desktop/arrow.svg') no-repeat;
+}
+
+.cardImg {
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+
+    /* .card {
+        height: 500px;
+        width: unset;
+    } */
+    .text {
+        --_padding-left-and-right: 2.688rem;
+        padding-left: var(--_padding-left-and-right);
+        padding-right: var(--_padding-left-and-right);
+
+    }
+
+    .card::after {
+        width: 100%
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+
+    .text {
+        --_padding-left-and-right: 2.5rem;
+
+
+    }
+
+    .card::after {
+        width: 100%;
+    }
+
+    /* .card:hover {
+        bottom: 1.5rem;
+        transition: bottom 0.5s;
+    } */
+
+    .card:hover::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.375rem;
+        bottom: 0;
+        top: unset;
+        z-index: 999;
+        background: var(--main-accent);
+    }
+}

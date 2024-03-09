@@ -1,0 +1,68 @@
+.reminderSection {
+    background: url('../public/images/shared/mobile/bg-beta.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+.reminderSection h2 {
+    font-family: 'DMSansBold';
+    font-size: var(--heading-900);
+    line-height: var(--line-height-heading-900);
+    font-weight: normal;
+    letter-spacing: 0.188rem;
+    text-transform: uppercase;
+
+    color: var(--pure-white);
+}
+
+.reminderSection::before {
+    content: '';
+    position: absolute;
+    width: 8rem;
+    height: 0.375rem;
+    background: var(--main-accent);
+    top: 0;
+    left: 2rem;
+}
+
+.wrapper {
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .reminderSection {
+        background: url('../public/images/shared/tablet/bg-beta.jpg') no-repeat;
+        background-size: cover;
+        border-left: solid;
+        border-width: 6px;
+        border-image-source: var(--main-accent);
+        border-image-slice: 1;
+    }
+
+    .borderLinear {}
+
+    .wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 4.25rem 2.5rem;
+    }
+
+    .reminderSection::before {
+
+        content: unset;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .reminderSection {
+        background: url('../public/images/shared/desktop/bg-beta.jpg') no-repeat;
+        background-size: cover;
+
+    }
+}
