@@ -1,18 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-const Hero = ({ image, alt, title, text, CTA, theme, withMainAccent, heroGridClass, mainAccentClass }) => {
+import classes from './Hero.module.css';
+import imageHeroDesktop from '../public/images/home/desktop/image-hero.jpg';
+const Hero = () => {
 
     return (
-        <div className={`hero ${theme} ${heroGridClass}`}>
-            <div className={`${withMainAccent ? 'mainAccent ' + mainAccentClass : ''} heroText grid-text`}>
-                <h2>{title}</h2>
-                <div className='heroTextContent'>
-                    <p>{text}</p>
-                    {CTA && <Link href="#" className={`secondary-link ${theme}`}>{CTA}</Link>}
-                </div>
+        <div className={`${classes.hero}`}>
+            <div className={classes.bgImageWrapper}>
+
             </div>
-            <Image src={image} alt={alt} className='heroImg grid-image' />
+            <div className={`${classes.wrapper} max-width`}>
+                <p className={classes.tag}>New product</p>
+                <h1>XX99 Mark II <br />Headphones</h1>
+                <p className={classes.description}>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
+                <Link className='primary-link' href='/'>See product</Link>
+            </div>
         </div>
     );
 };

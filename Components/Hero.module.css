@@ -1,1 +1,120 @@
-/* Code set in index.css so that I can use theming on it */
+.hero {
+    position: relative;
+    background: #121212;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../public/images/home/mobile/image-header.jpg') no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    filter: contrast(1.13);
+}
+
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--pure-white);
+    padding: 6.75rem 1.5rem 7rem 1.5rem;
+
+}
+
+.hero h1 {
+    font-size: var(--heading-900);
+    line-height: var(--line-height-heading-900);
+    letter-spacing: var(--letter-spacing-heading-900);
+    text-transform: uppercase;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.description {
+    opacity: .75;
+    padding-bottom: 1.75rem;
+    font-family: 'ManropeRegular';
+
+}
+
+.tag {
+    letter-spacing: 0.625rem;
+    font-size: 0.875rem;
+    opacity: .5;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+    line-height: normal;
+    font-family: 'ManropeRegular';
+}
+
+@media screen and (min-width: 48rem) {
+
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../public/images/home/tablet/image-header.jpg') no-repeat;
+        background-size: cover;
+        background-position: bottom;
+    }
+
+    .wrapper {
+        padding: 10.875rem 12.125rem 10.4375rem 12.125rem;
+    }
+
+    .tag {
+        padding-bottom: 1.5rem;
+    }
+
+    .description {
+        padding-bottom: 2.5rem;
+        max-width: 80%;
+    }
+}
+
+@media screen and (min-width: 90rem) {
+
+
+    .hero::before {
+        content: unset;
+
+    }
+
+    .bgImageWrapper {
+        max-height: 40.5rem;
+
+    }
+
+    .bgImageWrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../public/images/home/desktop/image-hero.jpg') no-repeat;
+        background-position: bottom;
+        filter: contrast(1.065);
+    }
+
+    .wrapper {
+        text-align: left;
+        align-items: start;
+        padding: 8rem 0 9.875rem 0;
+    }
+
+    .description {
+        max-width: 21.8125rem;
+    }
+}

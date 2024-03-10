@@ -1,0 +1,58 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--grey);
+    border-radius: 0.5rem;
+    padding: 1.375rem;
+}
+
+.thumbnail {
+    object-fit: cover;
+    height: auto;
+    max-width: 12rem;
+    position: absolute;
+    transform: translate(0, -42%);
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.0625rem;
+    margin-top: 5.5rem;
+}
+
+.shoppingLink {
+    margin-left: 1rem;
+}
+
+.categoryName {
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: 1.07px;
+}
+
+@media screen and (min-width: 48rem) {
+    .card {
+        display: grid;
+        flex-grow: 2;
+        position: relative;
+        justify-items: center;
+    }
+
+
+}
+
+@media screen and (min-width: 90rem) {
+    .text {
+        margin-top: 5.75rem;
+    }
+
+    .thumbnail {
+        max-width: 14.5rem;
+    }
+
+
+}
