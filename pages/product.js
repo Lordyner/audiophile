@@ -1,4 +1,7 @@
-import { getLogger } from "@/Logging/log-util";
+import { useContext, useEffect, useState } from 'react'
+import GlobalContext from '@/Store/GlobalContext'
+import { getLogger } from '@/Logging/log-util'
+import { useRouter } from 'next/router'
 import Head from "next/head";
 
 export default function Product() {
