@@ -12,6 +12,7 @@ import Hero from '@/Components/Hero'
 import Footer from '@/Components/Footer'
 import CategoryCardContainer from '@/Components/CategoryCardContainer'
 import HighlightedProducts from '@/Components/HighlightedProducts'
+import ValueProposition from '@/Components/ValueProposition'
 
 
 export default function Home() {
@@ -75,6 +76,7 @@ export default function Home() {
       <Hero />
       <CategoryCardContainer />
       <HighlightedProducts />
+      <ValueProposition />
       {/* <Footer /> */}
     </>
   )

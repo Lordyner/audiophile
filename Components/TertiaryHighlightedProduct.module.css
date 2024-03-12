@@ -48,8 +48,11 @@
 
 @media screen and (min-width: 90rem) {
     .container {
-
         column-gap: 1.875rem;
+    }
+
+    .textContainer {
+        padding: 6.3125rem 5.9375rem;
     }
 
 

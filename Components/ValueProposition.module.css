@@ -1,6 +1,6 @@
 .valueProposition {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 2.5rem;
 
     padding: 0 1.5rem 7.5rem 1.5rem;
@@ -13,13 +13,14 @@
     align-items: center;
     text-align: center;
     color: var(--pure-black);
-    text-transform: uppercase;
 }
 
 .textContent h2 {
     font-size: 1.75rem;
     line-height: normal;
     letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+
 }
 
 .highlighted {
@@ -30,4 +31,49 @@
 .valueImg {
     height: auto;
     border-radius: 0.5rem;
+    max-height: 18.75rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+.description {
+    opacity: .5;
+}
+
+@media screen and (min-width: 48rem) {
+    .valueProposition {
+        padding: 0 2.5rem 6rem 2.5rem;
+        gap: 3.9375rem;
+    }
+
+    .textContent h2 {
+        font-size: 2.5rem;
+        line-height: 2.75rem;
+        letter-spacing: 0.0894rem;
+    }
+
+    .description {
+        max-width: 80%;
+    }
+}
+
+@media screen and (min-width: 90rem) {
+    .valueProposition {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        column-gap: 1.875rem;
+    }
+
+    .textContent {
+        align-items: flex-start;
+        align-self: center;
+        text-align: left;
+    }
+
+    .valueImg {
+        max-height: unset;
+        height: unset;
+    }
 }

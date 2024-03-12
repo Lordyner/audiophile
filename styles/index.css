@@ -354,7 +354,8 @@ button.tertiary-link:hover {
 
 @media screen and (min-width: 1440px) {
     .max-width {
-        max-width: 90rem;
+        /* max-width: 90rem; */
+        max-width: 69.375rem;
         margin-inline: auto;
     }
 
