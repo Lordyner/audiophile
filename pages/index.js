@@ -11,6 +11,7 @@ import Image from 'next/image'
 import Hero from '@/Components/Hero'
 import Footer from '@/Components/Footer'
 import CategoryCardContainer from '@/Components/CategoryCardContainer'
+import HighlightedProducts from '@/Components/HighlightedProducts'
 
 
 export default function Home({ products }) {
@@ -73,6 +74,7 @@ export default function Home({ products }) {
       <Navbar />
       <Hero />
       <CategoryCardContainer />
+      <HighlightedProducts />
       {/* <Footer /> */}
     </>
   )

@@ -154,7 +154,7 @@ button.primary-link:hover {
 a.secondary-link,
 button.secondary-link {
     color: var(--pure-black);
-    background-color: var(--pure-white);
+    /* background-color: var(--pure-white); */
     border: 1px solid var(--pure-black);
 }
 
@@ -345,11 +345,16 @@ button.tertiary-link:hover {
 
 /* Media queries */
 
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+    .max-width {
+        max-width: 69.375rem;
+        margin-inline: auto;
+    }
+}
 
 @media screen and (min-width: 1440px) {
     .max-width {
-        max-width: 69.375rem;
+        max-width: 90rem;
         margin-inline: auto;
     }
 

@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.5625rem 1.5rem 2.5625rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--grey);
+}
+
+.textContainer h2 {
+    font-size: 1.75rem;
+    line-height: normal;
+    letter-spacing: 0.125rem;
+    font-family: 'ManropeBold';
+    color: var(--pure-black);
+}
+
+.productImg {
+    height: auto;
+    border-radius: 0.5rem;
+    width: 100%;
+    object-fit: cover;
+    max-height: 20rem;
+}
+
+@media screen and (min-width: 48rem) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0.6875rem;
+    }
+
+    .textContainer {
+        padding: 6.3125rem 2.5625rem 6.3125rem 2.5625rem;
+        justify-content: center;
+    }
+
+
+
+}
+
+@media screen and (min-width: 90rem) {
+    .container {
+
+        column-gap: 1.875rem;
+    }
+
+
+
+
+}

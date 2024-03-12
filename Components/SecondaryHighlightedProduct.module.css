@@ -1,0 +1,38 @@
+.card {
+    border-radius: 0.5rem;
+    padding: 6.3125rem 6.1875rem 6.3125rem 1.5rem;
+    background: url('../public/images/home/mobile/image-speaker-zx7.jpg') no-repeat;
+    background-size: cover;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.content h3 {
+    color: var(--pure-black);
+    font-size: 1.75rem;
+    line-height: normal;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 48rem) {
+    .card {
+        background: url('../public/images/home/tablet/image-speaker-zx7.jpg') no-repeat;
+        background-size: cover;
+        padding-left: 3.875rem;
+
+    }
+}
+
+@media screen and (min-width: 90rem) {
+    .card {
+        background: url('../public/images/home/desktop/image-speaker-zx7.jpg') no-repeat;
+        background-size: cover;
+
+    }
+}

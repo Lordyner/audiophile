@@ -1,0 +1,138 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: var(--pure-white);
+    position: relative;
+}
+
+.highlightedProducts {
+    padding: 0 1.5rem 7.5rem 1.5rem;
+
+}
+
+.wrapper h2 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.0806rem;
+    text-transform: uppercase;
+}
+
+.mainHighlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    border-radius: 0.5rem;
+    padding: 3.4375rem 1.5rem;
+
+    background-color: var(--primary-color);
+}
+
+.seeProductButton {
+    background-color: var(--pure-black) !important;
+    color: var(--pure-white) !important;
+    border: none !important;
+}
+
+.seeProductButton:hover {
+    background-color: #4C4C4C !important;
+}
+
+.description {
+    opacity: .75;
+}
+
+.speakerImg {
+    height: auto;
+}
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.imageWrapper {
+    max-width: 10.7656rem;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .imageWrapper {
+        max-width: 12.3125rem;
+    }
+
+    .wrapper {
+        gap: 2rem;
+    }
+
+    .highlightedProducts {
+        padding: 0 2.5rem 6rem 2.5rem;
+    }
+
+    .mainHighlight {
+        padding-top: 3.25rem;
+        padding-top: 4rem;
+        gap: 4rem
+    }
+
+    .wrapper h2 {
+        font-size: 3.5rem;
+        line-height: 3.625rem;
+        letter-spacing: 0.125rem;
+    }
+
+    .description {
+        max-width: 50%;
+    }
+
+    .seeProductButton {
+        margin-top: 1rem;
+    }
+
+}
+
+@media (min-width: 90rem) {
+    .highlightedProducts {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .wrapper {
+        gap: 3rem;
+    }
+
+    .mainHighlight {
+        padding-right: 5.9375rem;
+        padding-left: 5.9375rem;
+        padding-top: 6.5625rem;
+    }
+
+    .mainHighlight {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: 8.625rem;
+        overflow: hidden;
+    }
+
+    .textContent {
+        align-items: flex-start;
+        text-align: left;
+        justify-content: flex-start;
+        padding-top: 1.75rem;
+    }
+
+    .description {
+        max-width: 75%;
+    }
+
+    .imageWrapper {
+        max-width: unset;
+        position: relative;
+        bottom: -1rem;
+    }
+}
