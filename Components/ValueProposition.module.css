@@ -1,0 +1,33 @@
+.valueProposition {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    padding: 0 1.5rem 7.5rem 1.5rem;
+}
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    color: var(--pure-black);
+    text-transform: uppercase;
+}
+
+.textContent h2 {
+    font-size: 1.75rem;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+}
+
+.highlighted {
+    color: var(--primary-color);
+    font-family: 'ManropeBold';
+}
+
+.valueImg {
+    height: auto;
+    border-radius: 0.5rem;
+}

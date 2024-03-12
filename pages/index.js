@@ -14,9 +14,9 @@ import CategoryCardContainer from '@/Components/CategoryCardContainer'
 import HighlightedProducts from '@/Components/HighlightedProducts'
 
 
-export default function Home({ products }) {
+export default function Home() {
 
-  console.log(products);
+  // console.log(products);
   /* Logger */
   const logger = getLogger('Home');
   logger.debug('Home page rendered');
@@ -80,18 +80,18 @@ export default function Home({ products }) {
   )
 }
 
-export async function getStaticProps() {
-  const logger = getLogger('Home - getStaticProps');
+// export async function getStaticProps() {
+//   const logger = getLogger('Home - getStaticProps');
 
 
-  const response = await callShopify(AllProducts);
+//   const response = await callShopify(AllProducts);
 
-  logger.debug('response', response);
-  const products = response.data.products.edges;
+//   logger.debug('response', response);
+//   const products = response.data.products.edges;
 
-  return {
-    props: {
-      products
-    },
-  }
-}
+//   return {
+//     props: {
+//       products
+//     },
+//   }
+// }
