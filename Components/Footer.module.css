@@ -1,44 +1,64 @@
 .footer {
-
     background-color: var(--pure-black);
     color: var(--pure-white);
 
-    padding: 3.5rem 2rem;
+    padding: 3.25rem 1.5rem 2.375rem 1.5rem;
+    position: relative;
+
+}
+
+.logoAndLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 6.3125rem;
+    height: 0.25rem;
+    background-color: var(--primary-color);
+    transform: translate(-50%, 0);
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 7.438rem;
+    gap: 3rem;
 }
 
-.ctaAndCopyright {
+.textContent {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.125rem;
-
-}
-
-.socialsAndLinks {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 3.063rem;
-    padding-top: 2rem;
-}
-
-.logoAndSocial {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .socialLinks {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 0.831rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.copyrightAndSocial {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.copyright {
+    font-family: 'ManropeBold';
+}
+
+.valueProposition {
+    opacity: .5;
+    text-align: center;
 }
 
 .links {
@@ -46,7 +66,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.188rem;
+    gap: 1rem;
     color: var(--pure-white);
 
 }
@@ -56,10 +76,10 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    font-size: .75rem;
+    font-size: 0.8125rem;
     letter-spacing: 0.125rem;
-    line-height: normal;
-    font-family: 'DMSansBold';
+    line-height: 1.5625rem;
+    font-family: 'ManropeBold';
 }
 
 .link:hover {
@@ -75,10 +95,6 @@
 }
 
 
-.logoImg {
-    margin-inline: auto;
-}
-
 .icon {
     filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%)
 }
@@ -89,38 +105,61 @@
 
 @media screen and (min-width: 768px) {
     .footer {
-        padding: 4rem 2.5rem;
-
+        padding: 3.75rem 2.5rem 2.875rem 2.5rem;
+        position: relative;
     }
 
     .wrapper {
-        flex-direction: row;
-        justify-content: space-between;
+        gap: 5rem;
     }
 
-    .logoLinksAndSocials {
-        display: flex;
-        flex-direction: column;
+    .textContent {
         align-items: flex-start;
+        gap: 2rem;
+        text-align: left;
     }
 
-    .socialsAndLinks {
-        flex-direction: column;
+    .logoAndLinks {
+        gap: 2rem;
+    }
+
+    .valueProposition {
+        text-align: left;
     }
 
     .links {
         flex-direction: row;
-        gap: 1.625rem;
+        gap: 2.125rem;
     }
 
-    .ctaAndCopyright {
+    .copyrightAndSocial {
+        flex-direction: row;
         justify-content: space-between;
-        align-items: flex-end;
     }
 
-    .socialLinks {
-        justify-content: start;
+    .logo::before {
+        content: unset;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 6.3125rem;
+        height: 0.25rem;
+        background-color: var(--primary-color);
+        transform: translate(-50%, 0);
     }
+
+    .wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        /* left: 5.5rem; */
+        width: 6.3125rem;
+        height: 0.25rem;
+        background-color: var(--primary-color);
+        /* transform: translate(-50%, 0); */
+    }
+
+
 }
 
 @media screen and (min-width: 1440px) {
@@ -131,18 +170,32 @@
         gap: 7.813rem;
     }
 
-    .links {
-        flex-direction: column;
-        align-items: flex-start;
+    .textContent {
+        gap: 2.25rem;
     }
 
-    .logo {
-        position: relative;
-        top: 1rem;
+    .logoAndLinks {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .links {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .valueProposition {
+        max-width: 50%;
     }
 
     .cta {
         position: relative;
         top: 1rem;
+    }
+
+    .wrapper {
+        gap: 3.5rem;
     }
 }

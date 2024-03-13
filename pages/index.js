@@ -77,7 +77,7 @@ export default function Home() {
       <CategoryCardContainer />
       <HighlightedProducts />
       <ValueProposition />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
