@@ -82,18 +82,18 @@ export default function Home() {
   )
 }
 
-// export async function getStaticProps() {
-//   const logger = getLogger('Home - getStaticProps');
+export async function getStaticProps() {
+  const logger = getLogger('Home - getStaticProps');
 
 
-//   const response = await callShopify(AllProducts);
+  const response = await callShopify(AllProducts);
 
-//   logger.debug('response', response);
-//   const products = response.data.products.edges;
-
-//   return {
-//     props: {
-//       products
-//     },
-//   }
-// }
+  logger.debug('response', response);
+  const products = response.data.products.edges;
+  console.log(products)
+  return {
+    props: {
+      products
+    },
+  }
+}

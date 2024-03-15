@@ -3,6 +3,8 @@ import GlobalContext from '@/Store/GlobalContext'
 import { getLogger } from '@/Logging/log-util'
 import { useRouter } from 'next/router'
 import Head from "next/head";
+import { CategoryById, ProductsByType, callShopify } from '@/helpers/shopify';
+
 export default function Category() {
 
 
@@ -23,7 +25,6 @@ export default function Category() {
 
     /* Router */
     const router = useRouter();
-
     /* Functions */
     const handleMenuDisplay = () => {
         setScreenWidth(window.screen.width);
@@ -63,4 +64,26 @@ export default function Category() {
 
         </>
     )
+}
+export async function getStaticPaths() {
+    return {
+        paths: [],
+        fallback: true
+    };
+}
+export async function getStaticProps(context) {
+
+    const productType = context.params.categoryId;
+    const requestBody = {
+        query: ProductsByType,
+        variables: { productType }
+    }
+    // Call shopify API to retrieve category with categoryId
+    const category = await callShopify(ProductsByType, { productType: 'headphone' });
+    console.log(category);
+    return {
+        props: {
+            category: { tchoucou: 'tchoucou' }
+        },
+    }
 }
