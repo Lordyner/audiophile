@@ -10,12 +10,6 @@ export function getLogLevel(logger) {
 export function getLogger(name) {
     return pino({
         name,
-        level: getLogLevel(name),
-        transport: {
-            target: "pino-pretty",
-            options: {
-                colorize: true,
-            }
-        }
+        level: getLogLevel(name)
     })
 }
