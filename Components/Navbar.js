@@ -23,10 +23,10 @@ const Navbar = () => {
             <nav className={`${classes.navbar} max-width`}>
 
                 {/* Icon burger menu */}
-                <div ref={burger} className={`${(isMobileResolution || isTabletResolution) ? classes.hamburger : classes.hamburger + " display-none"}`}
+                <div ref={burger} className={`${(isMobileResolution || isTabletResolution) ? classes.hamburger : classes.hamburger + " display-none"} ${isMenuOpen ? classes.isActive : ''}`}
                     onClick={() => {
                         toggleMenu();
-                        burger.current.classList.toggle(classes.isActive);
+                        // burger.current.classList.toggle(classes.isActive);
 
                     }}>
                     <div className={classes.bar} />
@@ -47,16 +47,16 @@ const Navbar = () => {
                 <div className={`${(isMobileResolution || isTabletResolution) ? "display-none" : classes.navLink}`}>
 
                     <Link href="/" className={classes.link}>Home</Link>
-                    <Link href="/" className={classes.link}>Headphones</Link>
-                    <Link href="/" className={classes.link}>Speakers</Link>
-                    <Link href="/" className={classes.link}>Earphones</Link>
+                    <Link href="/category/headphones" className={classes.link}>Headphones</Link>
+                    <Link href="/category/speakers" className={classes.link}>Speakers</Link>
+                    <Link href="/category/earphones" className={classes.link}>Earphones</Link>
                 </div>
 
 
                 {/* Mobile menu */}
                 <div className={`${classes.mobileNav} ${isMenuOpen ? classes.active : ""}`}>
                     <div className={classes.mobileNavWrapper}>
-                        <CategoryCardContainer />
+                        <CategoryCardContainer onClickCategory={toggleMenu} />
                     </div>
                 </div>
 

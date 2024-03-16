@@ -1,0 +1,29 @@
+.banner {
+    background-color: #121212;
+    padding: 2rem 5.25rem;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.banner h1 {
+    color: var(--pure-white);
+    font-size: 1.75rem;
+    line-height: auto;
+    letter-spacing: 0.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 48rem) {
+    .banner {
+        padding: 6.125rem 2.5rem;
+    }
+
+    .banner h1 {
+        font-size: 2.5rem;
+        line-height: 2.75rem;
+        letter-spacing: 0.0894rem;
+    }
+}

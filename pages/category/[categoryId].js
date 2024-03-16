@@ -4,14 +4,20 @@ import { getLogger } from '@/Logging/log-util'
 import { useRouter } from 'next/router'
 import Head from "next/head";
 import { CategoryById, ProductsByType, callShopify } from '@/helpers/shopify';
+import Navbar from '@/Components/Navbar';
+import Footer from '@/Components/Footer';
+import ValueProposition from '@/Components/ValueProposition';
+import CategoryCardContainer from '@/Components/CategoryCardContainer';
+import ProductCard from '@/Components/ProductCard';
+import Banner from '@/Components/Banner';
+import ProductCardContainer from '@/Components/ProductCardContainer';
 
-export default function Category() {
+export default function Category({ products, productType }) {
 
 
     /* Logger */
     const logger = getLogger('Category');
     logger.debug('Category page rendered');
-
     /* State */
     const [screenWidth, setScreenWidth] = useState();
 
@@ -46,7 +52,7 @@ export default function Category() {
         // Handle loading spinner
         router.events.on("routeChangeStart", () => setIsLoading(true));
         router.events.on("routeChangeComplete", () => setIsLoading(false));
-        console.log()
+
     }, [screenWidth])
 
 
@@ -61,7 +67,21 @@ export default function Category() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
+            <Navbar />
+            <Banner title={productType} />
+            <ProductCardContainer>
 
+                {products && products.map((product) => {
+
+                    return (
+                        <ProductCard key={product.node.id} image={product.node.images.edges} alt={product.node.title} productTag={product.node.tags} productName={product.node.title} productType={product.node.productType} description={product.node.description} productId={product.node.id} />
+                    )
+                })}
+
+            </ProductCardContainer >
+            <CategoryCardContainer />
+            <ValueProposition />
+            <Footer />
         </>
     )
 }
@@ -72,18 +92,22 @@ export async function getStaticPaths() {
     };
 }
 export async function getStaticProps(context) {
-
-    const productType = context.params.categoryId;
-    const requestBody = {
-        query: ProductsByType,
-        variables: { productType }
-    }
+    const logger = getLogger('Category page - Server side');
     // Call shopify API to retrieve category with categoryId
-    const category = await callShopify(ProductsByType, { productType: 'headphone' });
-    console.log(category);
+    // const category = await callShopify(ProductsByType, { productType: context.params.categoryId });
+    const data = await callShopify(ProductsByType, { productTypeQuery: 'product_type:' + context.params.categoryId });
+    const products = data.data.products.edges;
+    const productType = products[0].node.productType;
+
+    // Remove images from products, if image doesn't contain "image-category-page-preview" in its url
+    products.forEach((product) => {
+        product.node.images.edges = product.node.images.edges.filter((image) => image.node.url.includes('image-category-page-preview'));
+    });
+
     return {
         props: {
-            category: { tchoucou: 'tchoucou' }
+            products: products,
+            productType: productType
         },
     }
 }
