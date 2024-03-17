@@ -56,8 +56,6 @@ export default function Category({ products, productType }) {
     }, [screenWidth])
 
 
-
-
     return (
         <>
             <Head>
@@ -68,15 +66,25 @@ export default function Category({ products, productType }) {
             </Head>
             <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
             <Navbar />
-            <Banner title={productType} />
+            {products && products.length > 0 && < Banner title={productType} />}
             <ProductCardContainer>
 
                 {products && products.map((product) => {
-
+                    console.log(product)
                     return (
-                        <ProductCard key={product.node.handle} image={product.node.images.edges} alt={product.node.title} productTag={product.node.tags} productName={product.node.title} productType={product.node.productType} description={product.node.description} productId={product.node.handle} />
+                        <ProductCard
+                            key={product.node.handle}
+                            productTag={product.node.tags}
+                            productName={product.node.title}
+                            productType={product.node.productType}
+                            description={product.node.description}
+                            productId={product.node.handle}
+                            previewImages={product.node.previewImages.references.nodes}
+                        />
                     )
                 })}
+                {products && products.length === 0 && <p>Aucun produit n&apos; été trouvé pour cette catégorie</p>}
+
 
             </ProductCardContainer >
             <CategoryCardContainer />
@@ -95,17 +103,12 @@ export async function getStaticProps(context) {
     const logger = getLogger('Category page - Server side');
     // Call shopify API to retrieve category with categoryId
     const data = await callShopify(ProductsByType, { productTypeQuery: 'product_type:' + context.params.productType });
-    const products = data.data.products.edges;
-    const productType = products[0].node.productType;
-
-    // Remove images from products, if image doesn't contain "image-category-page-preview" in its url
-    products.forEach((product) => {
-        product.node.images.edges = product.node.images.edges.filter((image) => image.node.url.includes('image-category-page-preview'));
-    });
+    const products = data?.data?.products?.edges;
+    const productType = Array.isArray(products) ? products[0].node.productType : '';
 
     return {
         props: {
-            products: products,
+            products: products || [],
             productType: productType
         },
     }

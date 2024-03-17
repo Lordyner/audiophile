@@ -11,6 +11,7 @@ import ProductCardDetail from '@/Components/ProductDetail/ProductCardDetail';
 import ProductDetailContainer from '@/Components/ProductDetail/ProductDetailContainer';
 import ProductInformation from '@/Components/ProductDetail/ProductInformation';
 import ProductImages from '@/Components/ProductDetail/ProductImages';
+import Breadcrumb from '@/Components/Layout/Breadcrumb';
 
 
 export default function Product({ product, productImages }) {
@@ -73,6 +74,7 @@ export default function Product({ product, productImages }) {
             </Head>
             <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
             <Navbar />
+            <Breadcrumb />
             <ProductDetailContainer>
                 {product && <ProductCardDetail product={product} productImages={productImages} />}
                 {product && <ProductInformation product={product} />}

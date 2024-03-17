@@ -1,0 +1,36 @@
+.breadcrumbs {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    padding: 1rem 1.5rem 0 1.5rem;
+}
+
+.breadcrumb {
+    opacity: .5;
+    text-decoration: none;
+    color: var(--pure-black);
+    border: none;
+    background-color: transparent;
+    font-size: 0.9375rem;
+    line-height: 1.5625rem;
+    font-family: 'ManropeMedium';
+    text-transform: capitalize;
+}
+
+.breadcrumb:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+@media (min-width: 48rem) {
+    .breadcrumbs {
+        padding: 2.0625rem 2.5rem 0 2.5rem;
+        padding-top: 2.0625rem;
+    }
+}
+
+@media (min-width: 90rem) {
+    .breadcrumbs {
+        padding-top: 4.9375rem;
+    }
+}
