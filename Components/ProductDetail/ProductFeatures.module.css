@@ -1,0 +1,45 @@
+.features {
+    padding-top: 5.5rem;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 1.5rem;
+
+}
+
+.features h2 {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    letter-spacing: 0.86px;
+    text-transform: uppercase;
+}
+
+.description {
+    opacity: .5;
+}
+
+@media screen and (min-width: 48rem) {
+    .features h2 {
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        letter-spacing: 0.0712rem;
+    }
+
+    .features {
+        padding-top: 7.5rem;
+    }
+}
+
+@media screen and (min-width: 90rem) {
+    .features h2 {
+        font-size: 2rem;
+        line-height: 2.375rem;
+        letter-spacing: 0.0712rem;
+    }
+
+    .features {
+        padding-top: 0;
+        gap: 2rem;
+    }
+}

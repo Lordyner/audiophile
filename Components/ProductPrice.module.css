@@ -1,0 +1,45 @@
+.priceSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.9375rem;
+}
+
+.addToCart {
+    display: flex;
+    gap: 1rem;
+}
+
+.price {
+    font-family: 'ManropeBold';
+    font-size: 1.125rem;
+    line-height: normal;
+    letter-spacing: 0.0806rem;
+}
+
+.quantitySelector {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    background-color: var(--grey);
+    font-size: 0.8125rem;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    font-family: 'ManropeBold';
+    max-width: 7.5rem;
+}
+
+.quantitySelector>* {
+    padding: 0.9688rem;
+}
+
+.buttonQuantity {
+    border: none;
+    opacity: .25;
+}
+
+.buttonQuantity:hover {
+    cursor: pointer;
+    opacity: 1;
+    color: var(--primary-color);
+}

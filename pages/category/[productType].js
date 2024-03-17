@@ -4,13 +4,13 @@ import { getLogger } from '@/Logging/log-util'
 import { useRouter } from 'next/router'
 import Head from "next/head";
 import { CategoryById, ProductsByType, callShopify } from '@/helpers/shopify';
-import Navbar from '@/Components/Navbar';
-import Footer from '@/Components/Footer';
+import Navbar from '@/Components/Layout/Navbar';
+import Footer from '@/Components/Layout/Footer';
 import ValueProposition from '@/Components/ValueProposition';
 import CategoryCardContainer from '@/Components/CategoryCardContainer';
-import ProductCard from '@/Components/ProductCard';
-import Banner from '@/Components/Banner';
-import ProductCardContainer from '@/Components/ProductCardContainer';
+import ProductCard from '@/Components/ProductPreview/ProductCard';
+import Banner from '@/Components/Layout/Banner';
+import ProductCardContainer from '@/Components/ProductPreview/ProductCardContainer';
 
 export default function Category({ products, productType }) {
 
@@ -74,7 +74,7 @@ export default function Category({ products, productType }) {
                 {products && products.map((product) => {
 
                     return (
-                        <ProductCard key={product.node.id} image={product.node.images.edges} alt={product.node.title} productTag={product.node.tags} productName={product.node.title} productType={product.node.productType} description={product.node.description} productId={product.node.id} />
+                        <ProductCard key={product.node.handle} image={product.node.images.edges} alt={product.node.title} productTag={product.node.tags} productName={product.node.title} productType={product.node.productType} description={product.node.description} productId={product.node.handle} />
                     )
                 })}
 
@@ -94,8 +94,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     const logger = getLogger('Category page - Server side');
     // Call shopify API to retrieve category with categoryId
-    // const category = await callShopify(ProductsByType, { productType: context.params.categoryId });
-    const data = await callShopify(ProductsByType, { productTypeQuery: 'product_type:' + context.params.categoryId });
+    const data = await callShopify(ProductsByType, { productTypeQuery: 'product_type:' + context.params.productType });
     const products = data.data.products.edges;
     const productType = products[0].node.productType;
 

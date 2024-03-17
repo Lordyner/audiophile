@@ -12,8 +12,15 @@
     "@emailjs/nodejs": "^2.2.0",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.1",
+    "agent-base": "^7.1.0",
+    "dompurify": "^3.0.9",
     "framer-motion": "^11.0.5",
+    "fs": "^0.0.1-security",
+    "http-proxy-agent": "^7.0.2",
+    "isomorphic-dompurify": "^2.4.0",
+    "jsdom": "^24.0.0",
     "moment": "^2.29.4",
+    "net": "^1.0.2",
     "next": "^13.2.4",
     "pino": "^8.16.2",
     "react": "^18",
@@ -21,7 +28,8 @@
     "react-icons": "^4.12.0",
     "react-loader-spinner": "^6.1.0",
     "sharp": "^0.33.0",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "eslint": "^8",

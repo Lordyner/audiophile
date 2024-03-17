@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import classes from './Hero.module.css';
-import imageHeroDesktop from '../public/images/home/desktop/image-hero.jpg';
+import imageHeroDesktop from '../../public/images/home/desktop/image-hero.jpg';
 const Hero = () => {
 
     return (

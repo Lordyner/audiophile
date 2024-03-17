@@ -14,14 +14,13 @@ export async function callShopify(query, variables = {}) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query, variables }),
-
   }
 
   try {
     const data = await fetch(fetchUrl, fetchOptions).then((response) =>
       response.json()
     )
-    logger.debug('Data fetched from Shopify');
+    logger.debug('Data fetched from Shopify %s', JSON.stringify(data));
     return data;
   } catch (error) {
     logger.error('Error fetching data from Shopify', error);
@@ -38,7 +37,6 @@ export const ProductsByType = gql`
     products(first: 10, query: $productTypeQuery	) {
       edges {
         node {
-          id
           title
           description
           handle
@@ -51,14 +49,44 @@ export const ProductsByType = gql`
               }
             }
           }
-          priceRange {
-            maxVariantPrice {
-              amount
-            }
-          }
           productType
           tags
         }
+      }
+    }
+  }
+`
+
+export const ProductByHandle = gql`
+  query ProductByHandle($productHandle: String!) {
+    product( handle: $productHandle	) {
+      title
+      description
+      handle
+      images(first: 15) {
+        edges {
+          node {
+            url
+            width
+            height
+            altText
+          }
+        }
+      }
+      productType
+      tags
+      priceRange {
+        maxVariantPrice {
+          amount
+        }
+      }
+      inTheBox: metafield(namespace: "custom", key: "inthebox") {
+        value
+        type
+      }
+      features: metafield(namespace: "custom", key: "features") {
+        value
+        type
       }
     }
   }

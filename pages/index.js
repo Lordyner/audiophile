@@ -3,13 +3,13 @@ import { useContext, useEffect, useState } from 'react'
 import GlobalContext from '@/Store/GlobalContext'
 import { getLogger } from '@/Logging/log-util'
 import { useRouter } from 'next/router'
-import Navbar from '@/Components/Navbar'
+import Navbar from '@/Components/Layout/Navbar'
 
 
 import { callShopify, AllProducts } from "../helpers/shopify"
 import Image from 'next/image'
-import Hero from '@/Components/Hero'
-import Footer from '@/Components/Footer'
+import Hero from '@/Components/Layout/Hero'
+import Footer from '@/Components/Layout/Footer'
 import CategoryCardContainer from '@/Components/CategoryCardContainer'
 import HighlightedProducts from '@/Components/HighlightedProducts'
 import ValueProposition from '@/Components/ValueProposition'

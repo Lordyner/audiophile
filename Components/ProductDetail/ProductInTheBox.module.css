@@ -1,0 +1,68 @@
+.inTheBox h2 {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    letter-spacing: 0.86px;
+    text-transform: uppercase;
+}
+
+.inTheBox {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 1.5rem;
+}
+
+.items {
+    list-style-type: none;
+}
+
+.item {
+    padding-bottom: .5rem;
+}
+
+.items:last-child {
+    padding-bottom: 0;
+}
+
+.itemName {
+    opacity: .5;
+    color: var(--pure-black);
+    font-family: 'ManropeMedium';
+
+}
+
+.occurence {
+    color: var(--primary-color);
+    font-size: 0.9375rem;
+    line-height: 1.5625rem;
+    font-family: 'ManropeBold';
+    padding-right: 1.5rem;
+}
+
+@media screen and (min-width: 48rem) {
+    .inTheBox {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .inTheBox h2 {
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        letter-spacing: 0.0712rem;
+    }
+}
+
+@media screen and (min-width: 90rem) {
+    .inTheBox {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .inTheBox h2 {
+        font-size: 2rem;
+        line-height: 2.375rem;
+        letter-spacing: 0.0712rem;
+    }
+}

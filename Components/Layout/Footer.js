@@ -3,10 +3,10 @@ import classes from './Footer.module.css';
 import Image from 'next/image';
 import GlobalContext from '@/Store/GlobalContext';
 import Link from 'next/link';
-import logo from '../public/images/shared/desktop/logo.svg';
-import iconFacebook from '../public/images/shared/desktop/icon-facebook.svg';
-import iconTwitter from '../public/images/shared/desktop/icon-twitter.svg';
-import iconInstagram from '../public/images/shared/desktop/icon-instagram.svg';
+import logo from '../../public/images/shared/desktop/logo.svg';
+import iconFacebook from '../../public/images/shared/desktop/icon-facebook.svg';
+import iconTwitter from '../../public/images/shared/desktop/icon-twitter.svg';
+import iconInstagram from '../../public/images/shared/desktop/icon-instagram.svg';
 
 const Footer = () => {
     const { isDesktopResolution } = useContext(GlobalContext);

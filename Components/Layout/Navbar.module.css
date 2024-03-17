@@ -109,7 +109,7 @@
     height: 3px;
     background-color: var(--pure-white);
     margin: 4px 0;
-    transition: .4s;
+    transition: .5s;
 }
 
 .hamburger.isActive:before {

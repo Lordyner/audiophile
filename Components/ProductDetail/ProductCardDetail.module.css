@@ -1,0 +1,95 @@
+.productCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.productTag {
+    font-size: 0.875rem;
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.625rem;
+    color: var(--primary-color);
+    padding-bottom: 1.5rem;
+    font-family: 'ManropeRegular';
+}
+
+.productTitle {
+    font-size: 1.75rem;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    color: var(--pure-black);
+    text-transform: uppercase;
+    padding-bottom: 1.5rem;
+    text-align: left;
+}
+
+.description {
+    color: var(--pure-black);
+    opacity: .5;
+    padding-bottom: 1.5rem;
+    text-align: left;
+}
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 48rem) {
+    .productCard {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4.3125rem;
+    }
+
+    .productImage {
+        padding-bottom: 0;
+    }
+
+    .content {
+        align-self: center;
+    }
+
+    .productTag {
+        padding-bottom: 1rem;
+        font-size: 0.75rem;
+    }
+
+    .productTitle {
+        line-height: 2rem;
+        padding-bottom: 2rem;
+
+    }
+
+    .description {
+        padding-bottom: 2rem;
+    }
+
+}
+
+@media screen and (min-width: 90rem) {
+    .productCard {
+        gap: 7.75rem;
+    }
+
+    .productTitle {
+        font-size: 2.5rem;
+        line-height: 2.75rem;
+        letter-spacing: 0.0894rem;
+    }
+
+
+    .productTag {
+        font-size: 0.875rem;
+    }
+}

@@ -5,7 +5,7 @@ import GlobalContext from '@/Store/GlobalContext';
 import Link from 'next/link';
 import logo from '@/public/images/shared/desktop/logo.svg';
 import iconChart from '@/public/images/shared/desktop/icon-cart.svg';
-import CategoryCardContainer from './CategoryCardContainer';
+import CategoryCardContainer from '../CategoryCardContainer';
 
 const Navbar = () => {
     const burger = useRef();
