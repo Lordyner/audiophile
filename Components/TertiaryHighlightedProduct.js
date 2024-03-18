@@ -20,7 +20,7 @@ const TertiaryHighlightedProduct = () => {
             {/* </div> */}
             <div className={classes.textContainer}>
                 <h2>YX1 earphones</h2>
-                <Link href='' className={'secondary-link'}>See product</Link>
+                <Link href='product/yx1-wireless' className={'secondary-link'}>See product</Link>
             </div>
         </div>
     );

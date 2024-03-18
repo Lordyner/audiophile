@@ -12,6 +12,7 @@ import ProductDetailContainer from '@/Components/ProductDetail/ProductDetailCont
 import ProductInformation from '@/Components/ProductDetail/ProductInformation';
 import ProductImages from '@/Components/ProductDetail/ProductImages';
 import Breadcrumb from '@/Components/Layout/Breadcrumb';
+import CategoryCardContainer from '@/Components/CategoryCardContainer';
 
 
 export default function Product({ product, productImages }) {
@@ -59,10 +60,6 @@ export default function Product({ product, productImages }) {
 
     }, [screenWidth])
 
-    // const mainDescription = product.description.toString().split('Features')[0];
-    // const additionnalDescription = product.description.toString().split('Features')[1];
-    // const inTheBox = additionnalDescription.split('In the box')[1];
-    // const features = additionnalDescription.split('In the box')[0];
 
     return (
         <>
@@ -80,6 +77,7 @@ export default function Product({ product, productImages }) {
                 {product && <ProductInformation product={product} />}
                 {product && <ProductImages product={product} />}
             </ProductDetailContainer>
+            <CategoryCardContainer />
             <ValueProposition />
             <Footer />
         </>

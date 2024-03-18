@@ -9,7 +9,13 @@ const ProductCardDetail = ({ product, productImages }) => {
     const { isMobileResolution, isTabletResolution } = useContext(GlobalContext);
     return (
         <div className={classes.productCard}>
-            <Image src={isMobileResolution ? productImages[0].node.url : isTabletResolution ? productImages[1].node.url : productImages[2].node.url} alt={product.altText} className={classes.productImage} width={327} height={352} />
+            <Image
+                src={isMobileResolution ? productImages[0].node.url : isTabletResolution ? productImages[1].node.url : productImages[2].node.url}
+                alt={productImages[0].node.altText}
+                className={classes.productImage}
+                width={327}
+                height={352}
+            />
             <div className={classes.content}>
                 {product.tags && <span className={classes.productTag}>{product.tags[0]}</span>}
                 <h1 className={classes.productTitle}>{product.title} <br />{product.productType}</h1>

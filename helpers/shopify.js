@@ -102,6 +102,20 @@ export const ProductByHandle = gql`
         value
         type
       }
+      additionnalProductImages: metafield(namespace: "custom", key: "additionnalProductImages") {      
+        references (first: 10){
+          nodes {
+            ... on MediaImage {
+              image {
+                url
+                width
+                height
+                altText
+              }
+            }
+          }
+        }
+      }
     }
   }
 `

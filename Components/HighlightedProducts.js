@@ -25,7 +25,7 @@ const HighlightedProducts = () => {
                     <div className={classes.textContent}>
                         <h2>ZX9 <br />Speaker</h2>
                         <p className={classes.description}>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-                        <Link href="" className={`secondary-link ${classes.seeProductButton} `}>See Product</Link>
+                        <Link href="/product/zx9" className={`secondary-link ${classes.seeProductButton} `}>See Product</Link>
                     </div>
                 </div>
                 <SecondaryHighlightedProduct />
