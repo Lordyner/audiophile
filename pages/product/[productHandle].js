@@ -3,7 +3,7 @@ import GlobalContext from '@/Store/GlobalContext'
 import { getLogger } from '@/Logging/log-util'
 import { useRouter } from 'next/router'
 import Head from "next/head";
-import { ProductByHandle, callShopify } from '@/helpers/shopify';
+import { FakeProductsByRecommandations, ProductByHandle, ProductsByRecommandations, callShopify } from '@/helpers/shopify';
 import Navbar from '@/Components/Layout/Navbar';
 import Footer from '@/Components/Layout/Footer';
 import ValueProposition from '@/Components/ValueProposition';
@@ -13,9 +13,11 @@ import ProductInformation from '@/Components/ProductDetail/ProductInformation';
 import ProductImages from '@/Components/ProductDetail/ProductImages';
 import Breadcrumb from '@/Components/Layout/Breadcrumb';
 import CategoryCardContainer from '@/Components/CategoryCardContainer';
+import RecommendedProductsContainer from '@/Components/ProductDetail/RecommendedProductsContainer';
+import RecommendedProduct from '@/Components/ProductDetail/RecommendedProduct';
 
 
-export default function Product({ product, productImages }) {
+export default function Product({ product, recommandedProducts }) {
 
 
     /* Logger */
@@ -59,7 +61,7 @@ export default function Product({ product, productImages }) {
 
 
     }, [screenWidth])
-
+    console.log(recommandedProducts);
 
     return (
         <>
@@ -73,10 +75,16 @@ export default function Product({ product, productImages }) {
             <Navbar />
             <Breadcrumb />
             <ProductDetailContainer>
-                {product && <ProductCardDetail product={product} productImages={productImages} />}
+                {product && <ProductCardDetail product={product} productImages={product.images.edges} />}
                 {product && <ProductInformation product={product} />}
                 {product && <ProductImages product={product} />}
+                {!product && <h1>Product not found</h1>}
             </ProductDetailContainer>
+            <RecommendedProductsContainer>
+                {recommandedProducts && recommandedProducts.map((product, index) => {
+                    return <RecommendedProduct key={index} title={product.node.title} images={product.node.recommendationImages} handle={product.node.handle} />
+                })}
+            </RecommendedProductsContainer>
             <CategoryCardContainer />
             <ValueProposition />
             <Footer />
@@ -91,14 +99,24 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
     const logger = getLogger('Product detail page - Server side');
-    const { productId } = context.params;
-    const data = await callShopify(ProductByHandle, { productHandle: productId });
-    const productImages = data.data.product.images.edges.filter((image) => image.node.url.includes('product'));
-    logger.debug(' Product fetched from Shopify %s', JSON.stringify(data));
+
+    // Get product handle from context
+    const { productHandle } = context.params;
+
+    // Fetch product from Shopify
+    const dataProduct = await callShopify(ProductByHandle, { productHandle: productHandle });
+    logger.debug(' Product fetched from Shopify %s', JSON.stringify(dataProduct));
+    const dataRecommandations = await callShopify(FakeProductsByRecommandations);
+
+    // Remove the product in dataRecommandations that has the same handle as the product
+    const recommandedProducts = dataRecommandations.data.products.edges.filter(product => product.node.handle !== productHandle);
+
+    logger.debug(' Recommandations fetched from Shopify %s', JSON.stringify(recommandedProducts));
+
     return {
         props: {
-            product: data.data.product,
-            productImages: productImages
+            product: dataProduct.data.product,
+            recommandedProducts: recommandedProducts
         },
         revalidate: 60
     }

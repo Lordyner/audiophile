@@ -30,7 +30,7 @@ export async function callShopify(query, variables = {}) {
 
 const gql = String.raw;
 
-// Generate a graphQL query to retrieve products by a type passed as a variable
+// Retrieve products by a type passed as a variable
 export const ProductsByType = gql`
   query ProductsByType($productTypeQuery: String!) {
     products(first: 10, query: $productTypeQuery	) {
@@ -67,13 +67,12 @@ export const ProductsByType = gql`
   }
 `;
 
-/*
-
-*/
+// Retrieve product by handle
 
 export const ProductByHandle = gql`
   query ProductByHandle($productHandle: String!) {
     product( handle: $productHandle	) {
+      id
       title
       description
       handle
@@ -121,7 +120,7 @@ export const ProductByHandle = gql`
 `
 
 
-
+// Retrieve all products
 export const AllProducts = gql`
   query Products {
     products(first: 22) {
@@ -150,3 +149,31 @@ export const AllProducts = gql`
     }
   }
 `
+
+export const FakeProductsByRecommandations = gql`
+  query ProductsByRecommandations {
+    products(first: 4) {
+      edges {
+        node {
+          id
+          handle
+          title
+          recommendationImages: metafield(namespace: "custom", key: "recommendationImages") {      
+            references (first: 3){
+              nodes {
+                ... on MediaImage {
+                  image {
+                    url
+                    width
+                    height
+                    altText
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

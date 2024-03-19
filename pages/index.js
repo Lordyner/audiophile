@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home - Photosnap</title>
+        <title>Home - Audiophile</title>
         <meta name="description" content="Create and share your photo stories" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -82,18 +82,18 @@ export default function Home() {
   )
 }
 
-export async function getStaticProps() {
-  const logger = getLogger('Home - getStaticProps');
+// export async function getStaticProps() {
+//   const logger = getLogger('Home - getStaticProps');
 
 
-  const response = await callShopify(AllProducts);
+//   const response = await callShopify(AllProducts);
 
-  logger.debug('response', response);
-  const products = response.data.products.edges;
-  console.log(products)
-  return {
-    props: {
-      products
-    },
-  }
-}
+//   logger.debug('response', response);
+//   const products = response.data.products.edges;
+//   console.log(products)
+//   return {
+//     props: {
+//       products
+//     },
+//   }
+// }
