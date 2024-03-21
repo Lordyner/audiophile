@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import classes from './Cart.module.css';
 import GlobalContext from '@/Store/GlobalContext';
 import Image from 'next/image';
@@ -30,9 +30,18 @@ const Cart = () => {
     })
     let formattedPrice = Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(totalPrice);
 
+    const handleClickOutside = (e) => {
+        let rect = cartModalRef.current.getBoundingClientRect();
+        let isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+            rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+        if (!isInDialog) {
+            cartModalRef.current.close();
+        }
+    }
+
     return (
         <div className={classes.container}>
-            <dialog className={classes.cart} ref={cartModalRef}>
+            <dialog className={classes.cart} ref={cartModalRef} onClick={handleClickOutside}>
                 <div className={classes.cartHeader}>
                     <h3 className={classes.cartTitle}>Cart ({cart.length})</h3>
                     {cart.length > 0 && <button className={classes.cleanCartButton} onClick={() => setCart([])}>Remove all</button>}
