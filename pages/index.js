@@ -13,6 +13,7 @@ import Footer from '@/Components/Layout/Footer'
 import CategoryCardContainer from '@/Components/CategoryCardContainer'
 import HighlightedProducts from '@/Components/HighlightedProducts'
 import ValueProposition from '@/Components/ValueProposition'
+import Cart from '@/Components/Cart'
 
 
 export default function Home() {
@@ -73,6 +74,8 @@ export default function Home() {
       </Head>
       <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
       <Navbar />
+      <Cart />
+
       <Hero />
       <CategoryCardContainer />
       <HighlightedProducts />

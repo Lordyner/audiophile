@@ -115,6 +115,18 @@ export const ProductByHandle = gql`
           }
         }
       }
+      cartImage: metafield(namespace: "custom", key: "cartImage") {      
+        reference { 
+          ... on MediaImage {
+            image {
+              url
+              width
+              height
+              altText
+            }
+          }
+        }
+      }
     }
   }
 `

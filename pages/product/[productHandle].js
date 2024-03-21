@@ -15,10 +15,11 @@ import Breadcrumb from '@/Components/Layout/Breadcrumb';
 import CategoryCardContainer from '@/Components/CategoryCardContainer';
 import RecommendedProductsContainer from '@/Components/ProductDetail/RecommendedProductsContainer';
 import RecommendedProduct from '@/Components/ProductDetail/RecommendedProduct';
+import Cart from '@/Components/Cart';
 
 
 export default function Product({ product, recommandedProducts }) {
-
+    console.log("product : ", product)
 
     /* Logger */
     const logger = getLogger('Product detail page - Client side');
@@ -73,6 +74,8 @@ export default function Product({ product, recommandedProducts }) {
             </Head>
             <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
             <Navbar />
+            <Cart />
+
             <Breadcrumb />
             <ProductDetailContainer>
                 {product && <ProductCardDetail product={product} productImages={product.images.edges} />}

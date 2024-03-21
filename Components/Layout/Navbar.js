@@ -16,8 +16,11 @@ const Navbar = () => {
     const { isMenuOpen } = useContext(GlobalContext);
     const { toggleMenu } = useContext(GlobalContext);
 
+    const { cartModalRef } = useContext(GlobalContext);
 
-
+    const clickCartIconHandler = () => {
+        cartModalRef.current.showModal();
+    }
     return (
         <header className={`${classes.header}`}>
             <nav className={`${classes.navbar} max-width`}>
@@ -34,12 +37,12 @@ const Navbar = () => {
 
                 <div className={classes.logo}>
                     <Link href="/">
-                        <Image src={logo} alt='logo photosnap' className={classes.logoImg} />
+                        <Image src={logo} alt='logo audiophile' className={classes.logoImg} />
                     </Link>
                 </div>
                 <div className={classes.iconChartWrapper}>
                     <button className={classes.iconChartButton}>
-                        <Image src={iconChart} className={classes.iconChart} alt='icon chart' />
+                        <Image onClick={clickCartIconHandler} src={iconChart} className={classes.iconChart} alt='icon chart' />
                     </button>
                 </div>
 

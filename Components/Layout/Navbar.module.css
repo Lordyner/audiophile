@@ -87,6 +87,10 @@
     object-fit: contain;
 }
 
+.iconChart:hover {
+    cursor: pointer;
+}
+
 /* Hamburger menu */
 .hamburger {
     position: relative;

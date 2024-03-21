@@ -7,6 +7,25 @@ const ProductCardDetail = ({ product, productImages }) => {
 
 
     const { isMobileResolution, isTabletResolution } = useContext(GlobalContext);
+    const { cart, setCart } = useContext(GlobalContext);
+
+    const handleAddProdutToCart = (quantitySelected) => {
+        if (cart.find(item => item.title === product.title)) {
+            const updatedCart = cart.map(item => {
+                if (item.title === product.title) {
+                    return { ...item, quantity: item.quantity + quantitySelected }
+                }
+                return item;
+            });
+            setCart(updatedCart);
+        } else {
+
+            setCart([...cart, { title: product.title, price: product.priceRange.maxVariantPrice.amount, quantity: quantitySelected, image: product.cartImage.reference.image }]);
+        }
+
+    };
+
+
     return (
         <div className={classes.productCard}>
             <Image
@@ -20,7 +39,7 @@ const ProductCardDetail = ({ product, productImages }) => {
                 {product.tags && <span className={classes.productTag}>{product.tags[0]}</span>}
                 <h1 className={classes.productTitle}>{product.title} <br />{product.productType}</h1>
                 <p className={classes.description}>{product.description}</p>
-                <ProductPrice price={product.priceRange.maxVariantPrice.amount} />
+                <ProductPrice price={product.priceRange.maxVariantPrice.amount} onClickAddToCart={handleAddProdutToCart} />
             </div>
         </div>
     );

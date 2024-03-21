@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useRef } from 'react';
 
 const GlobalContext = createContext();
 
@@ -17,10 +17,13 @@ export function GlobalContextProvider(props) {
 
     const [isMonthly, setIsMonthly] = useState(true);
     const [animatePrice, setAnimatePrice] = useState(false);
+    const [cart, setCart] = useState([]);
 
     const [mobileResolution] = useState(320);
     const [tabletResolution] = useState(768);
     const [desktopResolution] = useState(1440);
+
+    const cartModalRef = React.useRef();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -48,7 +51,9 @@ export function GlobalContextProvider(props) {
             mobileResolution, tabletResolution, desktopResolution,
             toggleMenu,
             isMonthly, setIsMonthly,
-            animatePrice, setAnimatePrice
+            animatePrice, setAnimatePrice,
+            cart, setCart,
+            cartModalRef
 
         }}>
             {props.children}

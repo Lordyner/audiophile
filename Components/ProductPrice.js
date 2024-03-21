@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import classes from './ProductPrice.module.css';
-const ProductPrice = ({ price }) => {
+const ProductPrice = ({ price, onClickAddToCart }) => {
 
     const [quantitySelected, setQuantitySelected] = useState(1);
     const formattedPrice = `$${price.split('.')[0]}`;
     const formattedPriceWithComma = formattedPrice.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+
 
     return (
         <div className={classes.priceSection}>
@@ -15,7 +16,7 @@ const ProductPrice = ({ price }) => {
                     <p>{quantitySelected}</p>
                     <button className={classes.buttonQuantity} onClick={() => setQuantitySelected(quantitySelected + 1)}>+</button>
                 </div>
-                <button className='primary-link'>Add to cart</button>
+                <button className='primary-link' onClick={() => onClickAddToCart(quantitySelected)}>Add to cart</button>
             </div>
         </div>
     );

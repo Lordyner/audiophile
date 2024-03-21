@@ -11,6 +11,7 @@ import CategoryCardContainer from '@/Components/CategoryCardContainer';
 import ProductCard from '@/Components/ProductPreview/ProductCard';
 import Banner from '@/Components/Layout/Banner';
 import ProductCardContainer from '@/Components/ProductPreview/ProductCardContainer';
+import Cart from '@/Components/Cart';
 
 export default function Category({ products, productType }) {
 
@@ -66,6 +67,8 @@ export default function Category({ products, productType }) {
             </Head>
             <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
             <Navbar />
+            <Cart />
+
             {products && products.length > 0 && < Banner title={productType} />}
             <ProductCardContainer>
 

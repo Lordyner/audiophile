@@ -3,6 +3,7 @@ import GlobalContext from '@/Store/GlobalContext'
 import { getLogger } from '@/Logging/log-util'
 import { useRouter } from 'next/router'
 import Head from "next/head";
+import Cart from '@/Components/Cart';
 
 export default function Checkout() {
 
@@ -61,6 +62,7 @@ export default function Checkout() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
+            <Cart />
 
         </>
     )
