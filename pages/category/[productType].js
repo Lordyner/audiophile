@@ -29,6 +29,8 @@ export default function Category({ products, productType }) {
     const { tabletResolution, desktopResolution } = useContext(GlobalContext);
     const { setIsLoading } = useContext(GlobalContext);
     const { isMenuOpen } = useContext(GlobalContext);
+    const { isCartOpen, setIsCartOpen } = useContext(GlobalContext);
+    const { toggleCart } = useContext(GlobalContext);
 
     /* Router */
     const router = useRouter();
@@ -65,10 +67,9 @@ export default function Category({ products, productType }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
+            {/* <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} /> */}
             <Navbar />
-            <Cart />
-
+            {isCartOpen && <div id='popup-overlay' onClick={toggleCart} />}
             {products && products.length > 0 && < Banner title={productType} />}
             <ProductCardContainer>
 

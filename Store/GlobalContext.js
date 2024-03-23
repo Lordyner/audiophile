@@ -23,11 +23,20 @@ export function GlobalContextProvider(props) {
     const [tabletResolution] = useState(768);
     const [desktopResolution] = useState(1440);
 
-    const cartModalRef = React.useRef();
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+
+
+    const toggleCart = () => {
+        setIsCartOpen(!isCartOpen);
+        handleBodyScroll(!isCartOpen);
+        setIsMenuOpen(false);
+    }
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
         handleBodyScroll(!isMenuOpen);
+        setIsCartOpen(false);
     }
     const handleBodyScroll = (lockScroll) => {
         const body = document.body;
@@ -53,7 +62,9 @@ export function GlobalContextProvider(props) {
             isMonthly, setIsMonthly,
             animatePrice, setAnimatePrice,
             cart, setCart,
-            cartModalRef
+            isCartOpen, setIsCartOpen,
+            toggleCart
+
 
         }}>
             {props.children}

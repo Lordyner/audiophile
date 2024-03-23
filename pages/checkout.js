@@ -22,6 +22,8 @@ export default function Checkout() {
     const { tabletResolution, desktopResolution } = useContext(GlobalContext);
     const { setIsLoading } = useContext(GlobalContext);
     const { isMenuOpen } = useContext(GlobalContext);
+    const { isCartOpen, setIsCartOpen } = useContext(GlobalContext);
+    const { toggleCart } = useContext(GlobalContext);
 
     /* Router */
     const router = useRouter();
@@ -61,9 +63,8 @@ export default function Checkout() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} />
-            <Cart />
-
+            {/* <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} /> */}
+            {isCartOpen && <div id='popup-overlay' onClick={toggleCart} />}
         </>
     )
 }

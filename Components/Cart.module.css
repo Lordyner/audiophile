@@ -3,9 +3,18 @@
     padding: var(--_padding);
     border-radius: 0.5rem;
     border: none;
-    margin-top: 5rem;
+    margin-top: 7.125rem;
     margin-inline: auto;
     width: calc(100% - (2 * var(--_padding)) - 3rem);
+    background-color: var(--pure-white);
+    position: fixed;
+
+    top: 0;
+    left: 1.5rem;
+    /* 
+    right: 0;
+    bottom: 0; */
+    z-index: 9999;
 }
 
 .cart::backdrop {
@@ -125,4 +134,20 @@
     cursor: pointer;
     opacity: 1;
     color: var(--primary-color);
+}
+
+
+
+
+
+
+@media (min-width: 48rem) {
+    .cart {
+        position: absolute;
+        width: 20.4375rem;
+        left: unset;
+        right: 0;
+        margin-top: 6rem;
+
+    }
 }

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import logo from '@/public/images/shared/desktop/logo.svg';
 import iconChart from '@/public/images/shared/desktop/icon-cart.svg';
 import CategoryCardContainer from '../CategoryCardContainer';
+import Cart from '../Cart';
 
 const Navbar = () => {
     const burger = useRef();
@@ -15,12 +16,9 @@ const Navbar = () => {
 
     const { isMenuOpen } = useContext(GlobalContext);
     const { toggleMenu } = useContext(GlobalContext);
+    const { isCartOpen, setIsCartOpen } = useContext(GlobalContext);
+    const { toggleCart } = useContext(GlobalContext);
 
-    const { cartModalRef } = useContext(GlobalContext);
-
-    const clickCartIconHandler = () => {
-        cartModalRef.current.showModal();
-    }
     return (
         <header className={`${classes.header}`}>
             <nav className={`${classes.navbar} max-width`}>
@@ -42,9 +40,10 @@ const Navbar = () => {
                 </div>
                 <div className={classes.iconChartWrapper}>
                     <button className={classes.iconChartButton}>
-                        <Image onClick={clickCartIconHandler} src={iconChart} className={classes.iconChart} alt='icon chart' />
+                        <Image onClick={toggleCart} src={iconChart} className={classes.iconChart} alt='icon chart' />
                     </button>
                 </div>
+                {isCartOpen && <Cart />}
 
                 {/* Classic links */}
                 <div className={`${(isMobileResolution || isTabletResolution) ? "display-none" : classes.navLink}`}>
