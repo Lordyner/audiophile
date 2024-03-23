@@ -74,7 +74,7 @@ export default function Category({ products, productType }) {
             <ProductCardContainer>
 
                 {products && products.map((product) => {
-                    console.log(product)
+
                     return (
                         <ProductCard
                             key={product.node.handle}

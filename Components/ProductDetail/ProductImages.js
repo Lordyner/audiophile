@@ -22,7 +22,7 @@ const ProductImages = ({ product }) => {
             return image;
         }
     }).map((image) => { return image.image })
-    console.log(firstImages[1].width, secondImages[1].width, thirdImages[1].width)
+
     return (
         <div className={classes.images}>
             <Image

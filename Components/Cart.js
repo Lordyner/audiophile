@@ -7,9 +7,17 @@ const Cart = () => {
 
     const { cart, setCart } = useContext(GlobalContext);
     const { isCartOpen, setIsCartOpen } = useContext(GlobalContext);
+
+    const handleRemoveAllProducts = () => {
+        setCart([]);
+        fetch('/api/deleteCartInCookies').then(response => response.json()).then(data => {
+            console.log(data);
+        });
+
+    }
+
     const handleClickOnQuantity = (index, operation) => {
         const updatedCart =
-
             cart.map((product, i) => {
                 if (product.quantity === 0 && operation === "minus") {
 
@@ -20,7 +28,13 @@ const Cart = () => {
             }).filter(product => product.quantity > 0);
 
         setCart(updatedCart);
-
+        fetch('/api/addCartInCookies', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedCart),
+        }).then(response => response.json())
     }
 
     let totalPrice = 0;
@@ -32,11 +46,10 @@ const Cart = () => {
 
 
     return (
-
         <div className={classes.cart}>
             <div className={classes.cartHeader}>
                 <h3 className={classes.cartTitle}>Cart ({cart.length})</h3>
-                {cart.length > 0 && <button className={classes.cleanCartButton} onClick={() => setCart([])}>Remove all</button>}
+                {cart.length > 0 && <button className={classes.cleanCartButton} onClick={handleRemoveAllProducts}>Remove all</button>}
             </div>
             <div className={classes.cartContent}>
                 {cart.map((product, index) => {

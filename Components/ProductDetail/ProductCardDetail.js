@@ -3,6 +3,7 @@ import classes from './ProductCardDetail.module.css';
 import Image from 'next/image';
 import GlobalContext from '@/Store/GlobalContext';
 import ProductPrice from '../ProductPrice';
+
 const ProductCardDetail = ({ product, productImages }) => {
 
 
@@ -10,6 +11,7 @@ const ProductCardDetail = ({ product, productImages }) => {
     const { cart, setCart } = useContext(GlobalContext);
 
     const handleAddProdutToCart = (quantitySelected) => {
+        // If product is already in cart, we update quantity
         if (cart.find(item => item.title === product.title)) {
             const updatedCart = cart.map(item => {
                 if (item.title === product.title) {
@@ -18,10 +20,26 @@ const ProductCardDetail = ({ product, productImages }) => {
                 return item;
             });
             setCart(updatedCart);
+            fetch('/api/addCartInCookies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedCart),
+            }).then(response => response.json())
         } else {
-
+            // If product is not in cart, we add it
             setCart([...cart, { title: product.title, price: product.priceRange.maxVariantPrice.amount, quantity: quantitySelected, image: product.cartImage.reference.image }]);
+            fetch('/api/addCartInCookies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify([...cart, { title: product.title, price: product.priceRange.maxVariantPrice.amount, quantity: quantitySelected, image: product.cartImage.reference.image }]),
+            }).then(response => response.json())
+
         }
+
 
     };
 

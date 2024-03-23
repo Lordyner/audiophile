@@ -46,7 +46,7 @@ export default function Product() {
         // Handle loading spinner
         router.events.on("routeChangeStart", () => setIsLoading(true));
         router.events.on("routeChangeComplete", () => setIsLoading(false));
-        console.log()
+
     }, [screenWidth])
 
 

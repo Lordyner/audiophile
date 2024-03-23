@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ProductInTheBox.module.css';
 const ProductInTheBox = ({ inTheBox }) => {
     const items = inTheBox.split('\n').filter(item => item !== ' ');
-    console.log(items)
+
     return (
         <div className={classes.inTheBox}>
             <h2>In the box</h2>

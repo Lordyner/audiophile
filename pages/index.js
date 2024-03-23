@@ -35,6 +35,7 @@ export default function Home() {
   const { isMenuOpen } = useContext(GlobalContext);
   const { isCartOpen, setIsCartOpen } = useContext(GlobalContext);
   const { toggleCart } = useContext(GlobalContext);
+  const { setCart } = useContext(GlobalContext);
 
   /* Router */
   const router = useRouter();
@@ -52,6 +53,13 @@ export default function Home() {
     setIsDesktopResolution(isDesktop);
   }
 
+
+  // const fetchCartInCookies = async () => {
+  //   const response = await fetch('/api/getCartInCookies');
+  //   const data = await response.json();
+  //   return data || [];
+  // }
+
   useEffect(() => {
     // Handle menu display
     handleMenuDisplay();
@@ -60,7 +68,7 @@ export default function Home() {
     // Handle loading spinner
     router.events.on("routeChangeStart", () => setIsLoading(true));
     router.events.on("routeChangeComplete", () => setIsLoading(false));
-    console.log()
+
   }, [screenWidth])
 
 
@@ -94,14 +102,8 @@ export default function Home() {
 //   const logger = getLogger('Home - getStaticProps');
 
 
-//   const response = await callShopify(AllProducts);
-
-//   logger.debug('response', response);
-//   const products = response.data.products.edges;
-//   console.log(products)
 //   return {
 //     props: {
-//       products
 //     },
 //   }
 // }

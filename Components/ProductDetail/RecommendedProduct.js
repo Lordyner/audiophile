@@ -6,7 +6,6 @@ import GlobalContext from '@/Store/GlobalContext';
 const RecommendedProduct = ({ title, images, handle }) => {
 
     const { isMobileResolution, isTabletResolution } = useContext(GlobalContext);
-    console.log(images)
     return (
         <div className={classes.card}>
             <div className={classes.imgWrapper}>

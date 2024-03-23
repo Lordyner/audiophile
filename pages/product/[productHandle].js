@@ -19,7 +19,6 @@ import Cart from '@/Components/Cart';
 
 
 export default function Product({ product, recommandedProducts }) {
-    console.log("product : ", product)
 
     /* Logger */
     const logger = getLogger('Product detail page - Client side');
@@ -64,7 +63,6 @@ export default function Product({ product, recommandedProducts }) {
 
 
     }, [screenWidth])
-    console.log(recommandedProducts);
 
     return (
         <>

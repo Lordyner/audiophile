@@ -26,8 +26,13 @@ export function GlobalContextProvider(props) {
     const [isCartOpen, setIsCartOpen] = useState(false);
 
 
-
     const toggleCart = () => {
+        fetch('/api/getCartInCookies').then(response => response.json()).then(data => {
+            console.log("Global context data : " + data);
+            if (data.length > 0) {
+                setCart(data);
+            }
+        });
         setIsCartOpen(!isCartOpen);
         handleBodyScroll(!isCartOpen);
         setIsMenuOpen(false);
@@ -38,6 +43,7 @@ export function GlobalContextProvider(props) {
         handleBodyScroll(!isMenuOpen);
         setIsCartOpen(false);
     }
+
     const handleBodyScroll = (lockScroll) => {
         const body = document.body;
         if (lockScroll) {

@@ -7,7 +7,7 @@ const ProductCard = ({ productTag, productName, productType, description, produc
 
     const { isMobileResolution, isTabletResolution } = useContext(GlobalContext);
 
-    console.log(previewImages);
+
 
     return (
         <div className={classes.productCard}>
