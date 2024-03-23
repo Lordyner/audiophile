@@ -112,7 +112,7 @@ export async function getStaticProps(context) {
     const dataRecommandations = await callShopify(FakeProductsByRecommandations);
 
     // Remove the product in dataRecommandations that has the same handle as the product
-    const recommandedProducts = dataRecommandations.data.products.edges.filter(product => product.node.handle !== productHandle);
+    const recommandedProducts = dataRecommandations.data.products.edges.filter(product => product.node.handle !== productHandle).slice(0, 3);
 
     logger.debug(' Recommandations fetched from Shopify %s', JSON.stringify(recommandedProducts));
 

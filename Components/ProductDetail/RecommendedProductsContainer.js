@@ -7,7 +7,6 @@ const RecommendedProductsContainer = ({ children }) => {
 
             <h2 className={classes.title}>You may also like</h2>
             <div className={classes.wrapper}>
-
                 {children}
             </div>
         </div>
