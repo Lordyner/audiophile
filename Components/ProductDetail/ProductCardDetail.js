@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './ProductCardDetail.module.css';
 import Image from 'next/image';
 import GlobalContext from '@/Store/GlobalContext';
@@ -10,9 +10,10 @@ const ProductCardDetail = ({ product, productImages }) => {
     const { isMobileResolution, isTabletResolution } = useContext(GlobalContext);
     const { cart, setCart } = useContext(GlobalContext);
     const { totalPrice, setTotalPrice } = useContext(GlobalContext);
+    const [openToast, setOpenToast] = useState(false);
 
-
-    const handleAddProdutToCart = (quantitySelected) => {
+    const handleAddProductToCart = (quantitySelected) => {
+        setOpenToast(true);
         // If product is already in cart, we update quantity
         if (cart.find(item => item.title === product.title)) {
             const updatedCart = cart.map(item => {
@@ -61,7 +62,14 @@ const ProductCardDetail = ({ product, productImages }) => {
                 {product.tags && <span className={classes.productTag}>{product.tags[0]}</span>}
                 <h1 className={classes.productTitle}>{product.title} <br />{product.productType}</h1>
                 <p className={classes.description}>{product.description}</p>
-                <ProductPrice price={product.priceRange.maxVariantPrice.amount} onClickAddToCart={handleAddProdutToCart} />
+
+                <ProductPrice
+                    price={product.priceRange.maxVariantPrice.amount}
+                    onClickAddToCart={handleAddProductToCart}
+                    openToast={openToast}
+                    setOpenToast={setOpenToast}
+                    productTitle={product.title}
+                />
             </div>
         </div>
     );

@@ -72,7 +72,7 @@ const Cart = () => {
         <div className={classes.cart}>
             <div className={classes.cartHeader}>
                 <h3 className={classes.cartTitle}>Cart ({cart.length})</h3>
-                {cart.length > 0 && <button className={classes.cleanCartButton} onClick={handleRemoveAllProducts}>Remove all</button>}
+                {cart.length > 0 && <button className={classes.cleanCartButton} onClick={handleRemoveAllProducts} type='button'>Remove all</button>}
             </div>
             <div className={classes.cartContent}>
                 {cart.map((product, index) => {

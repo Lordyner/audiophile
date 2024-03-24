@@ -46,6 +46,11 @@
     gap: 1rem;
 }
 
+.icon img:hover {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(71%) saturate(3357%) hue-rotate(332deg) brightness(95%) contrast(77%);
+
+}
+
 .copyrightAndSocial {
     display: flex;
     flex-direction: column;
@@ -83,7 +88,7 @@
 }
 
 .link:hover {
-    opacity: .3;
+    color: var(--primary-color);
 }
 
 .copyright {

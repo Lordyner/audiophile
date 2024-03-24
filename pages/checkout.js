@@ -29,7 +29,7 @@ export default function Checkout() {
     const { isMenuOpen } = useContext(GlobalContext);
     const { isCartOpen, setIsCartOpen } = useContext(GlobalContext);
     const { toggleCart } = useContext(GlobalContext);
-
+    const { cart } = useContext(GlobalContext);
     /* Router */
     const router = useRouter();
 
@@ -74,7 +74,7 @@ export default function Checkout() {
 
                 <Breadcrumb bgColor='bg-color-grey' />
                 <CheckoutForm />
-                <OrderConfirmation />
+                {cart.length > 0 && <OrderConfirmation />}
                 <Footer />
             </div>
         </>

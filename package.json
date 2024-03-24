@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/nodejs": "^2.2.0",
+    "@radix-ui/react-toast": "^1.1.5",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.1",
     "agent-base": "^7.1.0",
