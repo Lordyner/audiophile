@@ -7,11 +7,11 @@ import thumbnailEarphones from '../public/images/shared/desktop/image-category-t
 const CategoryCardContainer = ({ onClickCategory }) => {
     return (
         <section className={`${classes.categoryContainer} max-width`}>
-            <divv className={classes.wrapper}>
+            <div className={classes.wrapper}>
                 <CategoryCard name='Headphones' image={thumbnailHeadphones} alt='Headphones' onClickCategory={onClickCategory} />
                 <CategoryCard name='Speakers' image={thumbnailSpeakers} alt='Speakers' onClickCategory={onClickCategory} />
                 <CategoryCard name='Earphones' image={thumbnailEarphones} alt='Earphones' onClickCategory={onClickCategory} />
-            </divv>
+            </div>
         </section>
     );
 };

@@ -229,6 +229,9 @@ button.tertiary-link:hover {
     z-index: 999;
 }
 
+.checkout-page {
+    background-color: var(--grey);
+}
 
 /* UTILS */
 
@@ -348,7 +351,9 @@ button.tertiary-link:hover {
     min-height: fit-content;
 }
 
-
+.bg-color-grey {
+    background-color: var(--grey);
+}
 
 
 /* Media queries */

@@ -76,7 +76,7 @@ export default function Product({ product, recommandedProducts }) {
             <Navbar />
             {isCartOpen && <div id='popup-overlay' onClick={toggleCart} />}
 
-            <Breadcrumb />
+            <Breadcrumb bgColor='bg-color-white' />
             <ProductDetailContainer>
                 {product && <ProductCardDetail product={product} productImages={product.images.edges} />}
                 {product && <ProductInformation product={product} />}

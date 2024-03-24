@@ -1,0 +1,278 @@
+.container {
+    background-color: var(--grey);
+    padding: 1.5rem 1.5rem 6.0625rem 1.5rem;
+}
+
+.checkoutForm {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.checkoutForm {}
+
+.formWrapper {
+    background-color: var(--pure-white);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+.container h1 {
+    font-size: 1.75rem;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+}
+
+.container h2 {
+    font-size: 0.8125rem;
+    line-height: 1.5625rem;
+    letter-spacing: 0.0581rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.formFields {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: .5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5625rem;
+}
+
+.formGroupRB {
+    gap: 1rem;
+}
+
+.labelField {
+    visibility: hidden;
+    height: 1px;
+}
+
+.formGroup input {
+    border-radius: 0.5rem;
+    border: 1px solid #CFCFCF;
+    padding: 1.125rem 1.5rem;
+    font-size: 0.875rem;
+    line-height: normal;
+    letter-spacing: -0.0156rem;
+    font-family: 'ManropeBold';
+    caret-color: var(--primary-color);
+}
+
+.formGroup input:hover,
+.formGroup input:focus,
+.formGroup input:focus-visible,
+.formGroup input:active {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.formGroup input::placeholder {
+    opacity: .4;
+}
+
+.inputName,
+.customRBName {
+    font-size: 0.75rem;
+    line-height: normal;
+    font-family: 'ManropeBold';
+    letter-spacing: -0.0131rem;
+}
+
+.customRBName {
+    padding-top: 0.75rem;
+}
+
+
+
+.category {
+    display: flex;
+    flex-direction: column;
+}
+
+.cashOnDeliveryInfo {
+    display: flex;
+    gap: 2rem;
+}
+
+.explication {
+    font-size: 0.9375rem;
+    line-height: 1.5625rem;
+    opacity: .5;
+}
+
+/* Customize the label (the container) */
+.customRB {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #CFCFCF;
+    /* #CFCFCF */
+    border-radius: .5rem;
+    padding: 1.125rem 3.25rem;
+}
+
+/* Hide the browser's default radio button */
+.customRB input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--pure-white);
+    border: 1.5px solid #CFCFCF;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+
+.rbText {
+    font-size: 0.875rem;
+    font-family: 'ManropeBold';
+    line-height: normal;
+    letter-spacing: -0.0156rem;
+}
+
+/* On mouse-over, add a grey background color */
+.customRB:hover input~.checkmark {
+    background-color: var(--pure-white);
+}
+
+/* When the radio button is checked, add a blue background */
+.customRB input:checked~.checkmark {
+    background-color: var(--pure-white);
+    border: 1px solid #CFCFCF;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.customRB input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.customRB .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+@media (min-width: 48rem) {
+
+    .container {
+        padding: 1.5rem 2.5rem 6.0625rem 2.5rem;
+
+    }
+
+    .container h1 {
+        font-size: 2rem;
+        line-height: 2.25rem;
+        letter-spacing: 0.0712rem;
+    }
+
+    .formWrapper {
+        padding: 1.875rem 1.6875rem;
+    }
+
+    .billingDetails {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .shippingInfo {
+        display: grid;
+        grid-template-areas: 'address address'
+            'zip city'
+            'country .'
+        ;
+    }
+
+    .address {
+        grid-area: address;
+    }
+
+    .zip {
+        grid-area: zip;
+    }
+
+    .city {
+        grid-area: city;
+    }
+
+    .country {
+        grid-area: country;
+    }
+
+    .formGroupRB {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'labelField eMoney'
+            '. cashOnDelivery';
+    }
+
+    .labelField {
+        grid-area: labelField;
+    }
+
+    .eMoney {
+        grid-area: eMoney;
+    }
+
+    .cashOnDelivery {
+        grid-area: cashOnDelivery;
+    }
+
+    .paymentInfo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+
+}
+
+@media (min-width: 90rem) {
+    .checkoutForm {
+        display: grid;
+        grid-template-columns: 65% 32%;
+        align-items: start;
+        gap: 1.875rem;
+
+    }
+
+    .formWrapper {
+        padding: 3.375rem 3rem 3rem 3rem;
+    }
+}

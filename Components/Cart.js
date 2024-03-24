@@ -82,7 +82,10 @@ const Cart = () => {
                     <p className={classes.total}>Total</p>
                     <p className={classes.price}>{formattedPrice}</p>
                 </div>
-                <Link href="/checkout" className='primary-link'>Checkout</Link>
+                <Link href="/checkout" onClick={() => {
+                    setIsCartOpen(false)
+                    document.body.style.overflow = 'auto';
+                }} className='primary-link'>Checkout</Link>
             </div>
         </div>
 

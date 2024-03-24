@@ -4,6 +4,10 @@ import { getLogger } from '@/Logging/log-util'
 import { useRouter } from 'next/router'
 import Head from "next/head";
 import Cart from '@/Components/Cart';
+import Navbar from '@/Components/Layout/Navbar';
+import Footer from '@/Components/Layout/Footer';
+import Breadcrumb from '@/Components/Layout/Breadcrumb';
+import CheckoutForm from '@/Components/CheckoutForm';
 
 export default function Checkout() {
 
@@ -64,6 +68,13 @@ export default function Checkout() {
             </Head>
             {/* <div className={`overlay-burger-menu ${isMenuOpen ? 'isActive' : ''}`} /> */}
             {isCartOpen && <div id='popup-overlay' onClick={toggleCart} />}
+            <Navbar />
+            <div className='checkout-page'>
+
+                <Breadcrumb bgColor='bg-color-grey' />
+                <CheckoutForm />
+                <Footer />
+            </div>
         </>
     )
 }
