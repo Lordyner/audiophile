@@ -24,7 +24,7 @@ const Navbar = () => {
             {/* Mobile menu */}
             <div className={`${classes.mobileNav} ${isMenuOpen ? classes.active : ""}`}>
                 <div className={classes.mobileNavWrapper}>
-                    <CategoryCardContainer onClickCategory={toggleMenu} />
+                    <CategoryCardContainer onClickCategory={toggleMenu} isInBurgerMenu={true} />
                 </div>
             </div>
             <nav className={`${classes.navbar} max-width`}>

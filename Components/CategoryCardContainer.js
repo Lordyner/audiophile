@@ -4,9 +4,9 @@ import CategoryCard from './CategoryCard';
 import thumbnailHeadphones from '../public/images/shared/desktop/image-category-thumbnail-headphones.png';
 import thumbnailSpeakers from '../public/images/shared/desktop/image-category-thumbnail-speakers.png';
 import thumbnailEarphones from '../public/images/shared/desktop/image-category-thumbnail-earphones.png';
-const CategoryCardContainer = ({ onClickCategory }) => {
+const CategoryCardContainer = ({ onClickCategory, isInBurgerMenu }) => {
     return (
-        <section className={`${classes.categoryContainer} max-width`}>
+        <section className={`${classes.categoryContainer} ${isInBurgerMenu ? '' : 'max-width'}`}>
             <div className={classes.wrapper}>
                 <CategoryCard name='Headphones' image={thumbnailHeadphones} alt='Headphones' onClickCategory={onClickCategory} />
                 <CategoryCard name='Speakers' image={thumbnailSpeakers} alt='Speakers' onClickCategory={onClickCategory} />
