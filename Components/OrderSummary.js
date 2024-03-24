@@ -7,14 +7,15 @@ const OrderSummary = () => {
 
 
     const { cart } = useContext(GlobalContext);
-    let totalPrice = 0;
+
+    const { grandTotalPrice, setGrandTotalPrice } = useContext(GlobalContext);
+    const { totalPrice } = useContext(GlobalContext);
     return (
         <div className={classes.container}>
             <h2 className={classes.summaryTitle}>Summary</h2>
             {cart.length > 0 && <>
                 <div className={classes.products}>
                     {cart.map((product, index) => {
-                        totalPrice = totalPrice + (product.price * product.quantity);
                         return (
                             <div key={index} className={classes.product}>
                                 <div className={classes.imageAndTitleAndPrice}>
@@ -52,8 +53,7 @@ const OrderSummary = () => {
                     </div>
                 </div>
                 <div className={classes.buttonWrapper}>
-                    <button className={`primary-link ${classes.CTA}`}>Continue & Pay</button>
-
+                    <button type='submit' className={`primary-link ${classes.CTA}`}>Continue & Pay</button>
                 </div>
             </>
             }

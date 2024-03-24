@@ -25,6 +25,9 @@ export function GlobalContextProvider(props) {
 
     const [isCartOpen, setIsCartOpen] = useState(false);
 
+    const confirmationDialog = React.useRef();
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [grandTotalPrice, setGrandTotalPrice] = useState(0);
 
     const toggleCart = () => {
         fetch('/api/getCartInCookies').then(response => response.json()).then(data => {
@@ -69,7 +72,10 @@ export function GlobalContextProvider(props) {
             animatePrice, setAnimatePrice,
             cart, setCart,
             isCartOpen, setIsCartOpen,
-            toggleCart
+            toggleCart,
+            confirmationDialog,
+            grandTotalPrice, setGrandTotalPrice,
+            totalPrice, setTotalPrice
 
 
         }}>

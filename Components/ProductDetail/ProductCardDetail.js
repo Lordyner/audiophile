@@ -9,6 +9,8 @@ const ProductCardDetail = ({ product, productImages }) => {
 
     const { isMobileResolution, isTabletResolution } = useContext(GlobalContext);
     const { cart, setCart } = useContext(GlobalContext);
+    const { totalPrice, setTotalPrice } = useContext(GlobalContext);
+
 
     const handleAddProdutToCart = (quantitySelected) => {
         // If product is already in cart, we update quantity
@@ -39,6 +41,8 @@ const ProductCardDetail = ({ product, productImages }) => {
             }).then(response => response.json())
 
         }
+
+        setTotalPrice(totalPrice + (product.priceRange.maxVariantPrice.amount * quantitySelected));
 
 
     };

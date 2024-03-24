@@ -8,6 +8,7 @@ import Navbar from '@/Components/Layout/Navbar';
 import Footer from '@/Components/Layout/Footer';
 import Breadcrumb from '@/Components/Layout/Breadcrumb';
 import CheckoutForm from '@/Components/CheckoutForm';
+import OrderConfirmation from '@/Components/OrderConfirmation';
 
 export default function Checkout() {
 
@@ -73,6 +74,7 @@ export default function Checkout() {
 
                 <Breadcrumb bgColor='bg-color-grey' />
                 <CheckoutForm />
+                <OrderConfirmation />
                 <Footer />
             </div>
         </>

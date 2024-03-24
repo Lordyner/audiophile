@@ -2,21 +2,41 @@ import React, { useContext, useEffect } from 'react';
 import classes from './Cart.module.css';
 import GlobalContext from '@/Store/GlobalContext';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 const Cart = () => {
 
     const { cart, setCart } = useContext(GlobalContext);
     const { isCartOpen, setIsCartOpen } = useContext(GlobalContext);
-
+    const { totalPrice, setTotalPrice } = useContext(GlobalContext);
+    const router = useRouter();
     const handleRemoveAllProducts = () => {
+        // Remove all products from cart
         setCart([]);
+
+        // Remove cart from cookies
         fetch('/api/deleteCartInCookies').then(response => response.json()).then(data => {
             console.log(data);
         });
 
+        // Update total price
+        setTotalPrice(0);
     }
 
-    const handleClickOnQuantity = (index, operation) => {
+    useEffect(() => {
+        // Calculate total price when the cart is not empty (cookies) but the price is 0
+        if (totalPrice === 0 && cart.length > 0) {
+            let totalPrice = 0;
+            cart.forEach(product => {
+                totalPrice = totalPrice + (product.price * product.quantity);
+            });
+            setTotalPrice(totalPrice);
+        }
+    })
+
+    const handleClickOnQuantity = (index, operation, productPrice) => {
+
+        // Add or remove product from cart
         const updatedCart =
             cart.map((product, i) => {
                 if (product.quantity === 0 && operation === "minus") {
@@ -27,7 +47,17 @@ const Cart = () => {
                 return product;
             }).filter(product => product.quantity > 0);
 
+        // Update total price
+        if (operation === "add") {
+            setTotalPrice(totalPrice + +productPrice);
+        } else {
+            setTotalPrice(totalPrice - +productPrice);
+        }
+
+        // Update cart
         setCart(updatedCart);
+
+        // Update cart in cookies
         fetch('/api/addCartInCookies', {
             method: 'POST',
             headers: {
@@ -36,13 +66,6 @@ const Cart = () => {
             body: JSON.stringify(updatedCart),
         }).then(response => response.json())
     }
-
-    let totalPrice = 0;
-    cart.forEach((product) => {
-        totalPrice += product.price * product.quantity;
-    })
-    let formattedPrice = Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(totalPrice);
-
 
 
     return (
@@ -67,9 +90,9 @@ const Cart = () => {
                                     <p className={classes.cartProductPrice}>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(product.price)}</p>
                                 </div>
                                 <div className={classes.quantitySelector}>
-                                    <button className={classes.buttonQuantity} onClick={() => handleClickOnQuantity(index, "minus")}>-</button>
+                                    <button className={classes.buttonQuantity} onClick={() => handleClickOnQuantity(index, "minus", product.price)}>-</button>
                                     <p>{product.quantity}</p>
-                                    <button className={classes.buttonQuantity} onClick={() => handleClickOnQuantity(index, "add")}>+</button>
+                                    <button className={classes.buttonQuantity} onClick={() => handleClickOnQuantity(index, "add", product.price)}>+</button>
                                 </div>
                             </div>
                         </div>
@@ -80,12 +103,20 @@ const Cart = () => {
             <div className={classes.cartFooter}>
                 <div className={classes.priceSection}>
                     <p className={classes.total}>Total</p>
-                    <p className={classes.price}>{formattedPrice}</p>
+                    {/* <p className={classes.price}>{formattedPrice}</p> */}
+                    <p className={classes.price}>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(totalPrice)}</p>
                 </div>
-                <Link href="/checkout" onClick={() => {
-                    setIsCartOpen(false)
-                    document.body.style.overflow = 'auto';
-                }} className='primary-link'>Checkout</Link>
+                <button onClick={() => {
+                    if (cart.length === 0) {
+                        return;
+                    }
+                    router.push('/checkout').then(() => {
+                        setIsCartOpen(false)
+                        document.body.style.overflow = 'auto';
+                    });
+                }}
+                    disabled={cart.length === 0}
+                    className={`primary-link ${cart.length === 0 ? 'disabled' : ''}`}>Checkout</button>
             </div>
         </div>
 

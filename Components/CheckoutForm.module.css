@@ -46,6 +46,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5625rem;
+    position: relative;
 }
 
 .formGroupRB {
@@ -57,9 +58,22 @@
     height: 1px;
 }
 
+.info {
+    background-color: #CD2C2C;
+    color: var(--pure-white);
+    border: 1px solid #CD2C2C;
+    margin-bottom: 1.5rem;
+    border-radius: .5rem;
+    font-family: 'ManropeBold';
+}
+
+.infoWrapper {
+    padding: 1.5rem;
+}
+
 .formGroup input {
     border-radius: 0.5rem;
-    border: 1px solid #CFCFCF;
+    border: 1.5px solid #CFCFCF;
     padding: 1.125rem 1.5rem;
     font-size: 0.875rem;
     line-height: normal;
@@ -75,6 +89,29 @@
     border-color: var(--primary-color);
     outline: none;
 }
+
+.formGroup input:not(:focus):not(:placeholder-shown):invalid {
+    border-color: #CD2C2C;
+    border-width: 2px;
+}
+
+.formGroup input:not(:focus):not(:placeholder-shown):invalid~.errorMessage {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 0.75rem;
+    color: #CD2C2C;
+    line-height: normal;
+    letter-spacing: -0.0131rem;
+    padding-top: 0.5625rem;
+}
+
+.errorMessage {
+    display: none;
+}
+
+
 
 .formGroup input::placeholder {
     opacity: .4;

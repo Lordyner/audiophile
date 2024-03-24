@@ -1,0 +1,168 @@
+.confirmationDialog {
+    --_padding: 2rem;
+    background-color: var(--pure-white);
+
+    padding: var(--_padding);
+    border: none;
+    margin: auto;
+    width: calc(100% - (2 * var(--_padding)) - 3rem);
+    border-radius: .5rem;
+    outline: none;
+}
+
+.dialogTitle {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.0537rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+}
+
+.productImage {
+    width: 3.125rem;
+    height: 3.125rem;
+
+}
+
+.buttonWrapper {
+    display: flex;
+}
+
+.CTA {
+    flex-grow: 1;
+}
+
+.confirmation {
+    opacity: .5;
+}
+
+.confirmationDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.additionnalInfo {
+    font-size: .75rem;
+    line-height: normal;
+    letter-spacing: -0.0131rem;
+    font-family: 'ManropeBold';
+    opacity: .5;
+    text-align: center;
+}
+
+.priceAndName {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 0.9375rem;
+    line-height: 1.5625rem;
+    font-family: 'ManropeBold';
+}
+
+.price {
+    font-size: 0.875rem;
+    line-height: 1.5625rem;
+    font-family: 'ManropeBold';
+    opacity: .5;
+}
+
+
+.summary {
+    padding-top: 1.5rem;
+    padding-bottom: 1.4375rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: #F1F1F1;
+    padding: 1.5rem;
+    border-top-right-radius: .5rem;
+    border-top-left-radius: .5rem;
+}
+
+.grandTotal {
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    line-height: 1.5625rem;
+    font-family: 'ManropeMedium';
+    opacity: .5;
+}
+
+.products {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imagePriceAndName {
+    display: flex;
+    gap: 1rem;
+}
+
+.separator {
+    border: 1px solid #E0E0E0;
+    margin: 0.75rem 0;
+}
+
+.quantity {
+    font-size: 0.9375rem;
+    line-height: 1.5625rem;
+    font-family: 'ManropeBold';
+    opacity: .5;
+    justify-self: end;
+}
+
+.iconOrder {
+    padding-bottom: 1.4375rem;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    padding: 0.9375rem 1.5rem 1.1875rem 1.5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+.grandTotalPrice {
+    font-size: 1rem;
+    line-height: normal;
+    font-family: 'ManropeBold';
+}
+
+@media (min-width: 48rem) {
+
+    .confirmationDialog {
+        padding: 3rem;
+        width: calc(33.75rem - 6rem);
+    }
+
+    .dialogTitle {
+        font-size: 2rem;
+        line-height: 2.25rem;
+        letter-spacing: 0.0712rem;
+    }
+
+    .summary {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header {
+        border-radius: 0;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+
+    .footer {
+        border-radius: 0;
+        border-top-right-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+        justify-content: center;
+
+    }
+}
