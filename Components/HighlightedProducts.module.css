@@ -46,6 +46,7 @@
 
 .speakerImg {
     height: auto;
+
 }
 
 .textContent {
@@ -124,7 +125,7 @@
         align-items: flex-start;
         text-align: left;
         justify-content: flex-start;
-        padding-top: 1.75rem;
+        padding-top: 3.75rem;
     }
 
     .description {
@@ -135,5 +136,10 @@
         max-width: unset;
         position: relative;
         bottom: -1rem;
+    }
+
+    .speakerImg {
+        position: relative;
+        bottom: -3rem;
     }
 }
