@@ -165,6 +165,14 @@
     padding: 1.125rem 3.25rem;
 }
 
+.customRB:hover {
+    border-color: var(--primary-color);
+}
+
+
+
+
+
 /* Hide the browser's default radio button */
 .customRB input {
     position: absolute;

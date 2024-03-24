@@ -43,14 +43,15 @@ export function GlobalContextProvider(props) {
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
-        handleBodyScroll(!isMenuOpen);
+        // handleBodyScroll(!isMenuOpen);
         setIsCartOpen(false);
     }
 
     const handleBodyScroll = (lockScroll) => {
         const body = document.body;
         if (lockScroll) {
-            body.style.overflow = 'hidden';
+            console.log("lock scroll")
+            body.style.overflow = 'hidden!important';
         } else {
             body.style.overflow = 'auto';
         }

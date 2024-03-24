@@ -21,6 +21,12 @@ const Navbar = () => {
 
     return (
         <header className={`${classes.header}`}>
+            {/* Mobile menu */}
+            <div className={`${classes.mobileNav} ${isMenuOpen ? classes.active : ""}`}>
+                <div className={classes.mobileNavWrapper}>
+                    <CategoryCardContainer onClickCategory={toggleMenu} />
+                </div>
+            </div>
             <nav className={`${classes.navbar} max-width`}>
 
                 {/* Icon burger menu */}
@@ -53,15 +59,6 @@ const Navbar = () => {
                     <Link href="/category/speakers" className={classes.link}>Speakers</Link>
                     <Link href="/category/earphones" className={classes.link}>Earphones</Link>
                 </div>
-
-
-                {/* Mobile menu */}
-                <div className={`${classes.mobileNav} ${isMenuOpen ? classes.active : ""}`}>
-                    <div className={classes.mobileNavWrapper}>
-                        <CategoryCardContainer onClickCategory={toggleMenu} />
-                    </div>
-                </div>
-
             </nav>
         </header >
     );

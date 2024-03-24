@@ -98,7 +98,7 @@ body {
     line-height: var(--line-height-body-500);
     background-color: var(--pure-white);
     font-family: 'ManropeMedium';
-
+    overflow-y: visible !important;
 }
 
 img {
@@ -210,7 +210,7 @@ button.tertiary-link:hover {
     padding: 0 10rem;
 }
 
-/* .overlay-burger-menu {
+.overlay-burger-menu {
     width: 100%;
     height: 100%;
     left: -100%;
@@ -224,7 +224,7 @@ button.tertiary-link:hover {
 
 .overlay-burger-menu.isActive {
     left: 0;
-} */
+}
 
 
 /* Toast */
