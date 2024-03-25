@@ -238,7 +238,7 @@ button.tertiary-link:hover {
     padding: var(--viewport-padding);
     gap: 10px;
     width: 390px;
-    max-width: 100vw;
+    max-width: calc(100vw - (var(--viewport-padding)* 2));
     margin: 0;
     list-style: none;
     z-index: 2147483647;
@@ -467,6 +467,12 @@ button.tertiary-link:hover {
 
 
 /* Media queries */
+
+/* @media (min-width: 26.5625rem) {
+    .ToastViewport {
+        width: 390px;
+    }
+} */
 
 @media screen and (min-width: 768px) {
     .max-width {
