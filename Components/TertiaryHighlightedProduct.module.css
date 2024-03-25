@@ -14,7 +14,7 @@
     background-color: var(--grey);
 }
 
-.textContainer h2 {
+.boxProductTitle {
     font-size: 1.75rem;
     line-height: normal;
     letter-spacing: 0.125rem;
