@@ -20,6 +20,7 @@
     letter-spacing: 0.125rem;
     font-family: 'ManropeBold';
     color: var(--pure-black);
+    text-transform: uppercase;
 }
 
 .productImg {
