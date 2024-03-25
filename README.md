@@ -1,6 +1,6 @@
-# Frontend Mentor - Photosnap Website solution
+# Frontend Mentor - Audiophile e-commerce website solution
 
-This is a solution to the [Photosnap Website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/photosnap-multipage-website-nMDSrNmNW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Audiophile e-commerce website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
@@ -12,10 +12,9 @@ This is a solution to the [Photosnap Website challenge on Frontend Mentor](https
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -23,17 +22,26 @@ This is a solution to the [Photosnap Website challenge on Frontend Mentor](https
 
 Users should be able to:
 
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements throughout the site
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add/Remove products from the cart
+- Edit product quantities in the cart
+- Fill in all fields in the checkout
+- Receive form validations if fields are missed or incorrect during checkout
+- See correct checkout totals depending on the products in the cart
+  - Shipping always adds $50 to the order
+  - VAT is calculated as 20% of the product total, excluding shipping
+- See an order confirmation modal after checking out with an order summary
+- **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
 ### Screenshot
 
-![](./fullpage_screenshot.png)
+![](./audiophile.png)
 
 ### Links
 
-- Solution URL: [https://www.frontendmentor.io/challenges/photosnap-multipage-website-nMDSrNmNW/hub](https://www.frontendmentor.io/challenges/photosnap-multipage-website-nMDSrNmNW/hub)
-- Live Site URL: [https://photosnap-sigma.vercel.app/](https://photosnap-sigma.vercel.app/)
+- Solution URL: [https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx/hub](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx/hub)
+- Live Site URL: [https://audiophile-indol-nu.vercel.app/](https://audiophile-indol-nu.vercel.app/)
 
 ## My process
 
@@ -46,47 +54,34 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
-- [Framer motion](https://www.framer.com/motion/introduction/) - For animation
+- [Shopify] (https://www.shopify.com/fr)
 
 ### What I learned
 
-I learned the basic of how to use framer motion using motion.div
-
-```jsx
-<motion.div
-            whileHover={{
-                y: -24,
-                transition: { duration: 0.25 }
-            }}
-            className={`${classes.card} `}>
-            <Image src={image} alt={alt} className={classes.cardImg} />
-            <div className={classes.text}>
-                <div className={classes.info}>
-                    {date && <p className={classes.date}>{date}</p>}
-                    <h3>{title}</h3>
-                    <p className={classes.author}>by {author}</p>
-                </div>
-                <div className={classes.separator} />
-                <Link className={classes.CTA} href=''>
-                    <p className={classes.textCTA}>{CTA}</p>
-                    <p className={classes.arrowCTA}></p>
-                </Link>
-            </div>
-        </motion.div>
-```
-
+- How to use Shopify Graph QL API
+- How to request Graph QL API
+- How to create a store on Shopify and create meta fields
 
 ### Continued development
 
-I want to learn more about :
-- shopify API, to be able to setup a headless e-commerce website
-- framer motion and set up scrolling animation, so that the content of the page appears bit by bit.
+I have some improvements in mind for this project : 
+- Refactor my project and have a clean architecture
+- Call Shopify API to handle cart (for the moment I handle cart on my own)
+
+In general those are the two aspects I want to keep working on : architecture and building e-commerce app with Shopify
+
+
+### Useful resources
+
+- [Metafield documentation](https://shopify.dev/docs/api/storefront/2024-01/objects/Metafield)
+
 
 ## Author
 
-- Website - [André-Lubin Thomas](https://www.thomasandrelubin.fr/)
+- Website - [Thomas André-Lubin](https://www.thomasandrelubin.fr/)
 - Frontend Mentor - [@Lordyner](https://www.frontendmentor.io/profile/Lordyner)
 
 ## Acknowledgments
 
-Thanks to the discord and the moderators for answering my questions and giving me advice. 
+Thanks to Morgan (aka Momo) for being my plastic duck and helping me figure out how to request my metafields
+
